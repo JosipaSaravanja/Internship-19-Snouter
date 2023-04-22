@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Data
 {
-    public class ShopContextFactory : IDesignTimeDbContextFactory<SnouterContext>
+    /*public class ShopContextFactory : IDesignTimeDbContextFactory<SnouterContext>
     {
         public IConfigurationRoot GetConnectionString()
         {
@@ -27,5 +27,5 @@ namespace Data
 
             return new SnouterContext(options);
         }
-    }
+    }*/
 }
