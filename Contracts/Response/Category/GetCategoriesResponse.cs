@@ -2,7 +2,7 @@
 
 namespace ClassLibrary1.Response.Category;
 
-public class PublicCategoriesResponse
+public class GetCategoriesResponse
 {
     public List<GetCategoryResponse> Categories { get; set; } = new List<GetCategoryResponse>();
 }
