@@ -1,5 +1,7 @@
 ﻿using Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 
 namespace Data;
 
@@ -12,58 +14,81 @@ public static class Seeder
             new Location
             {
                 Id = Guid.NewGuid(),
-                Name = "Zagreb",
-                Latitude = 45.81769,
-                Longitude = 15.96449,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Split",
-                Latitude = 43.51525,
-                Longitude = 16.44860,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Šibenik",
-                Latitude = 43.73135,
-                Longitude = 15.88985,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Zadar",
-                Latitude = 44.12015,
-                Longitude = 15.24162,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Dubrovnik",
-                Latitude = 42.65093,
-                Longitude = 18.095883,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Rijeka",
-                Latitude = 45.32811,
-                Longitude = 14.46889,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
-                Name = "Almere",
-                Latitude = 52.370216,
-                Longitude = 5.214424,
-            },
-            new Location
-            {
-                Id = Guid.NewGuid(),
                 Name = "Breda",
                 Latitude = 51.586849,
                 Longitude = 4.776023,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Tilburg",
+                Latitude = 51.555,
+                Longitude = 5.091944,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Eindhoven",
+                Latitude = 51.4416,
+                Longitude = 5.4697,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Den Bosch",
+                Latitude = 51.6864,
+                Longitude = 5.3034,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Amsterdam",
+                Latitude = 52.3702,
+                Longitude = 4.8952,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Rotterdam",
+                Latitude = 51.9244,
+                Longitude = 4.4777,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Utrecht",
+                Latitude = 52.0907,
+                Longitude = 5.1221,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Groningen",
+                Latitude = 53.2194,
+                Longitude = 6.5665,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Maastricht",
+                Latitude = 50.8514,
+                Longitude = 5.6902,
+            },
+
+            new Location
+            {
+                Id = Guid.NewGuid(),
+                Name = "Haarlem",
+                Latitude = 52.379189,
+                Longitude = 4.899431,
             },
         };
 
@@ -71,21 +96,39 @@ public static class Seeder
         {
             new Category{ 
                 Id = Guid.NewGuid(), 
-                Name="",
-                Description="",
+                Name = "Vehicles",
+                Description="Category about vehicles and stuff",
             },
-        };
 
-        var subCategories = new List<SubCategory>
-        {
-            new SubCategory
+            new Category
             {
-                Id= Guid.NewGuid(),
+                Id = Guid.NewGuid(), 
+                Name = "House",
+                Description="Category about houses and stuff",
+            },
 
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Electronics",
+                Description="Category about electronics and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Clothes",
+                Description="Category about clothes and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Books",
+                Description="Category about books and stuff",
             },
         };
 
-
-        modelBuilder.Entity<Location>().HasData(locations);
+        //modelBuilder.Entity<Location>().HasData(locations);
     }
 }
