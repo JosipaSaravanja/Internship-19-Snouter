@@ -37,6 +37,7 @@ public class SubCategoryServices
     public async Task<PostSubCategoryResponse> PostSubCategory(PostSubCategoryRequest postSubCategoryRequest)
     {
         var subCategory = _subCategoryMappers.PostSubCategoryRequestToSubCategory(postSubCategoryRequest);
+        if (subCategory == null) return new PostSubCategoryResponse {IsCompleted = false, SubCategory = null};
         var addition = await _subCategoryRepository.PostSubCategory(subCategory);
         if (!addition) return new PostSubCategoryResponse {IsCompleted = false, SubCategory = null};
         return new PostSubCategoryResponse()
@@ -48,6 +49,7 @@ public class SubCategoryServices
     public async Task<PutSubcategoryResponse> PutSubCategory(PutSubCategoryRequest putSubCategoryRequest)
     {
         var subCategory = _subCategoryMappers.PutSubCategoryRequestToSubCategory(putSubCategoryRequest);
+        if (subCategory == null) return new PutSubcategoryResponse {IsCompleted = false, SubCategory = null};
         var update = await _subCategoryRepository.PutSubCategory(subCategory);
         if (!update) return new PutSubcategoryResponse {IsCompleted = false, SubCategory = null};
         return new PutSubcategoryResponse()

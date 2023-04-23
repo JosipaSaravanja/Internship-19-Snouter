@@ -51,7 +51,7 @@ public class ProductsMapper
                 SellerId = postProductsRequest.SellerId,
                 ImageUrl = postProductsRequest.Images,
                 Price = (double)postProductsRequest.Price,
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
                 isSold = false
             };
         }
@@ -77,7 +77,7 @@ public class ProductsMapper
                 SellerId = putProductsRequest.SellerId,
                 ImageUrl = putProductsRequest.Images,
                 Price = (double)putProductsRequest.Price,
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTime.UtcNow,
                 isSold = false
             };
         }

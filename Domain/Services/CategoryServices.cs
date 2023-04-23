@@ -59,4 +59,13 @@ public class CategoryServices
     }
 
 
+    public async Task<GetCategoriesResponse> GetAllCategories()
+    {
+        var categories = await _repo.GetAllCategories();
+        return new GetCategoriesResponse
+        {
+            Categories = categories.Select(_categoryMapper.CategoryToGetCategoryResponse).ToList()
+
+        };
+    }
 }
