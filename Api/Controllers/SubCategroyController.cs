@@ -40,7 +40,9 @@ public class SubCategroyController : ControllerBase
         {
             Id = id,
             Name = request.Name,
-            CategoryId = request.CategoryId
+            CategoryId = request.CategoryId,
+            Description = request.Description,
+            Schema = request.Schema
         };
         var response = await _subCategoryServices.PutSubCategory(putSubCategoryRequest);
         if (response.SubCategory == null) return NotFound();

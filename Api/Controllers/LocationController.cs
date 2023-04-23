@@ -41,12 +41,11 @@ public class LocationController : ControllerBase
         {
             Id = id,
             Name = request.Name,
-            Description = request.Description,
             Latitude = request.Latitude,
             Longitude = request.Longitude
         };
         var response = await _locationServices.PutLocation(putLocationRequest);
-        if (response.Location == null) return NotFound();
+        if (response.Location == null) return NotFound(response);
         return Ok(response);
     }
     [HttpDelete(Routes.Location.Delete)]

@@ -27,7 +27,7 @@ public class CategoryRepository
             await _context.Categories.AddAsync(category);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -41,7 +41,7 @@ public class CategoryRepository
             await _context.Categories.AddAsync(category);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -54,7 +54,7 @@ public class CategoryRepository
             _context.Categories.Remove(category);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }

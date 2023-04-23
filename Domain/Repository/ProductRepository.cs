@@ -23,15 +23,9 @@ public class ProductRepository
     }
     public async Task<bool> PostProduct(Product product)
     {
-        try
-        {
+     
             await _context.Products.AddAsync(product);
             return await _context.SaveChangesAsync() > 0;
-        }
-        catch (DbUpdateException)
-        {
-            return false;
-        }
     }
     public async Task<bool> PutProduct(Product product)
     {
@@ -42,7 +36,7 @@ public class ProductRepository
             await _context.Products.AddAsync(product);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -55,11 +49,43 @@ public class ProductRepository
             _context.Products.Remove(product);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
     }
-    
+    public async Task<bool> UpdateBought (Guid id, Guid BuyerId)
+    {
+        try
+        {
+            if (BuyerId == Guid.Empty)
+            {
+                return false;
+            }
+
+            if (id == Guid.Empty)
+            {
+                return false;
+            }
+
+            var product = await GetProductById(id);
+            if (product == null)
+            {
+                return false;
+            }
+            if (product.isSold)
+            {
+                return false;
+            }
+            product.isSold = true;
+            product.BuyerId = BuyerId;
+            return await _context.SaveChangesAsync() > 0;
+        }
+        catch 
+        {
+            return false;
+        }
+    }
+
 
 }

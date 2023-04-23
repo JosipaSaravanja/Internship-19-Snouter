@@ -27,7 +27,7 @@ public class UserRepository
             await _context.Users.AddAsync(user);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -41,7 +41,7 @@ public class UserRepository
             await _context.Users.AddAsync(user);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -54,10 +54,10 @@ public class UserRepository
             _context.Users.Remove(user);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
     }
-    
+
 }

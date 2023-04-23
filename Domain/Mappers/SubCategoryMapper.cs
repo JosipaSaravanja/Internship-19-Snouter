@@ -9,11 +9,12 @@ namespace Domain.Mappers;
 public class SubCategoryMapper
 {
     private readonly SnouterContext _context;
-    
+
     public SubCategoryMapper(SnouterContext context)
     {
         _context = context;
     }
+
     public GetSubCategoryResponse SubCategoryToGetSubCategoryResponse(SubCategory subCategory)
     {
         return new GetSubCategoryResponse
@@ -22,27 +23,30 @@ public class SubCategoryMapper
             Name = subCategory.Name,
             Description = subCategory.Description,
             CategoryId = subCategory.CategoryId,
-            Products = _context.Products.Where(x => x.SubCategoryId == subCategory.Id).Select(x => x.Id).ToList()
+            Products = _context.Products.Where(x => x.SubCategoryId == subCategory.Id).Select(x => x.Id).ToList(),
+            Schema = subCategory.Schema.ToString()
         };
     }
+
     public SubCategory PostSubCategoryRequestToSubCategory(PostSubCategoryRequest postSubCategoryRequest)
     {
-        try{
-        return new SubCategory
+        try
         {
-            Id = Guid.NewGuid(),
-            Name = postSubCategoryRequest.Name,
-            Description = postSubCategoryRequest.Description,
-            CategoryId = postSubCategoryRequest.CategoryId,
-            Schema = JSchema.Parse(@postSubCategoryRequest.Schema)
-
-        };
+            return new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name = postSubCategoryRequest.Name,
+                Description = postSubCategoryRequest.Description,
+                CategoryId = postSubCategoryRequest.CategoryId,
+                Schema = JSchema.Parse(@postSubCategoryRequest.Schema)
+            };
         }
         catch
         {
             return null;
         }
     }
+
     public SubCategory PutSubCategoryRequestToSubCategory(PutSubCategoryRequest putSubCategoryRequest)
     {
         try

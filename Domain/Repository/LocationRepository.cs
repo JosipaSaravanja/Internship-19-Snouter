@@ -31,7 +31,7 @@ public class LocationRepository
             await _context.Locations.AddAsync(location);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -42,11 +42,11 @@ public class LocationRepository
         try
         {
             var locationToDelete = await GetLocationById(location.Id);
-            _context.Locations.Remove(location);
+            _context.Locations.Remove(locationToDelete);
             await _context.Locations.AddAsync(location);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -60,7 +60,7 @@ public class LocationRepository
             _context.Locations.Remove(location);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }

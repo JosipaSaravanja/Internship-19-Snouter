@@ -3,8 +3,7 @@
 public class PostLocationRequest
 {
     public string Name { get; set; } = null!;
-    public string Description { get; set; } = null!;
-    public decimal Latitude { get; set; }
-    public decimal Longitude { get; set; }
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
     
 }

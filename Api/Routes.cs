@@ -26,14 +26,7 @@ public class Routes
         public const string Post = Base + $"/products";
         public const string Put = Base + $"/products/{{id:Guid}}";
         public const string Delete = Base + $"/products/{{id:Guid}}";
-    }
-    public static class Country
-    {
-        public const string GetAll = Base + $"/countries";
-        public const string Get = Base + $"/countries/{{id:Guid}}";
-        public const string Post = Base + $"/countries";
-        public const string Put = Base + $"/countries/{{id:Guid}}";
-        public const string Delete = Base + $"/countries/{{id:Guid}}";
+        public const string Buy = Base + $"/products/{{id:Guid}}/buy";
     }
     public static class User
     {

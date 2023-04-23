@@ -48,7 +48,7 @@ public class LocationServices
         var location = _locationMapper.PutLocationRequestToLocation(putLocationRequest);
         var update = await _locationRepository.PutLocation(location);
         if (!update) return new PutLocationResponse {IsCompleted = false, Location = null};
-        return new PutLocationResponse()
+        return new PutLocationResponse
         {
             IsCompleted = true,
             Location = _locationMapper.LocationToGetLocationResponse(location)

@@ -22,16 +22,10 @@ public class SubCategoryRepository
     }
     public async Task<bool> PostSubCategory(SubCategory subCategory)
     {
-        try
-        {
+       
             await _context.SubCategories.AddAsync(subCategory);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
-        {
-            return false;
-        }
-    }
     public async Task<bool> PutSubCategory(SubCategory subCategory)
     {
         try
@@ -41,7 +35,7 @@ public class SubCategoryRepository
             await _context.SubCategories.AddAsync(subCategory);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }
@@ -54,7 +48,7 @@ public class SubCategoryRepository
             _context.SubCategories.Remove(subCategory);
             return await _context.SaveChangesAsync() > 0;
         }
-        catch (DbUpdateException)
+        catch 
         {
             return false;
         }

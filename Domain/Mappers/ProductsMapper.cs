@@ -6,6 +6,7 @@ using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 
 namespace Domain.Mappers;
 public class ProductsMapper
@@ -29,7 +30,7 @@ public class ProductsMapper
             BuyerId = product.BuyerId,
             SellerId = product.SellerId,
             Images = product.ImageUrl,
-            Price = (decimal)product.Price,
+            Price = (double)product.Price,
             CreatedAt = product.CreatedAt,
             IsSold = product.isSold
         };
@@ -47,11 +48,11 @@ public class ProductsMapper
                 Data = JObject.Parse(@postProductsRequest.Data),
                 SubCategoryId = postProductsRequest.SubCategoryId,
                 LocationId = postProductsRequest.LocationId,
-                BuyerId = postProductsRequest.BuyerId,
                 SellerId = postProductsRequest.SellerId,
                 ImageUrl = postProductsRequest.Images,
                 Price = (double)postProductsRequest.Price,
                 CreatedAt = DateTime.UtcNow,
+                BuyerId = postProductsRequest.SellerId, //because the product is not sold yet
                 isSold = false
             };
         }
@@ -64,22 +65,30 @@ public class ProductsMapper
     {
         try
         {
-            return new Product
+            var product = new Product
             {
                 Id = putProductsRequest.Id,
                 Name = putProductsRequest.Name,
+                BuyerId = putProductsRequest.SellerId,      //because the product is not sold yet
                 Description = putProductsRequest.Description,
                 CategoryId = putProductsRequest.CategoryId,
                 Data = JObject.Parse(@putProductsRequest.Data),
                 SubCategoryId = putProductsRequest.SubCategoryId,
                 LocationId = putProductsRequest.LocationId,
-                BuyerId = putProductsRequest.BuyerId,
                 SellerId = putProductsRequest.SellerId,
                 ImageUrl = putProductsRequest.Images,
                 Price = (double)putProductsRequest.Price,
                 CreatedAt = DateTime.UtcNow,
                 isSold = false
             };
+            if (product.Data.IsValid(_context.SubCategories.Find(product.SubCategoryId).Schema))
+            {
+                return product;
+            }
+            else
+            {
+                return null;
+            }
         }
         catch
         {

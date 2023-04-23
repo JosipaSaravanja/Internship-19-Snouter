@@ -37,7 +37,8 @@ public class UserMappers
             LocationId = postUserRequest.LocationId,
             Name = postUserRequest.Name,
             Bio = postUserRequest.Bio,
-            IsAdmin = postUserRequest.IsAdmin
+            IsAdmin = postUserRequest.IsAdmin,
+            Password = postUserRequest.Password
         };
     }
     public User PutUserRequestToUser(PutUserRequest putUserRequest)

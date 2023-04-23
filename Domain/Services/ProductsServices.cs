@@ -58,6 +58,14 @@ public class ProductsServices
         if (!deletion) return new DeleteProductResponse {IsCompleted = false};
         return new DeleteProductResponse {IsCompleted = true};
     }
+    public async Task<BuyProductResponse> BuyProduct(BuyProductRequest buyProductRequest)
+    {
+        var product = await _productRepository.UpdateBought(buyProductRequest.Id, buyProductRequest.BuyerId);
+        return new BuyProductResponse
+        {
+            IsCompleted = product,
+        };
+    }
     
     
     
