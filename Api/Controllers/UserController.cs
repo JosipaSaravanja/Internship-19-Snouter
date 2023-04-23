@@ -53,5 +53,12 @@ public class UserController : ControllerBase
         if (response.User == null) return NotFound();
         return Ok(response);
     }
+    [HttpDelete(Routes.User.Delete)]
+    public async Task<ActionResult<DeleteUserResponse>> DeleteUser(Guid id)
+    {
+        var response = await _userServices.DeleteUser(id);
+        if (!response.IsCompleted) return NotFound();
+        return Ok(response);
+    }
 
 }
