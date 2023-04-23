@@ -10,6 +10,7 @@ public class PutProductsRequest
     public Guid CategoryId { get; set; }
     public Guid SellerId { get; set; }
     public Guid BuyerId { get; set; }
-    public string Image { get; set; } = null!;
+    public Guid SubCategoryId { get; set; }
+    public List<string> Images { get; set; } = null!;
     public string Data { get; set; } = null!;
 }

@@ -13,6 +13,7 @@ public class CategoryMapper
     {
         _context = context;
     }
+
     public GetCategoryResponse CategoryToGetCategoryResponse(Category category)
     {
         return new GetCategoryResponse
@@ -24,13 +25,24 @@ public class CategoryMapper
             Products = _context.Products.Where(x => x.CategoryId == category.Id).Select(x => x.Id).ToList()
         };
     }
-    public Category GetCategoryResponseToCategory(PostCategoryRequest postCategoryRequest)
+
+    public Category PostCategoryRequestToCategory(PostCategoryRequest postCategoryRequest)
     {
         return new Category
         {
             Id = Guid.NewGuid(),
             Name = postCategoryRequest.Name,
             Description = postCategoryRequest.Description
+        };
+    }
+
+    public Category PutCategoryRequestToCategory(PutCategoryRequest putCategoryRequest)
+    {
+        return new Category
+        {
+            Id = putCategoryRequest.Id,
+            Name = putCategoryRequest.Name,
+            Description = putCategoryRequest.Description
         };
     }
 }

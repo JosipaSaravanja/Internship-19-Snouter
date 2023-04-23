@@ -2,6 +2,6 @@
 
 public class PutUserResponse
 {
-    public GetUserResponse Product { get; set; } = null!;
+    public GetUserResponse User { get; set; } = null!;
     public bool IsCompleted { get; set; }
 }

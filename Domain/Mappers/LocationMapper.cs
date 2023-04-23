@@ -25,7 +25,7 @@ public class LocationMapper
             Longitude = location.Longitude
         };
     }
-    public Location GetLocationResponseToLocation(PostLocationRequest postLocationRequest)
+    public Location PostLocationRequestToLocation(PostLocationRequest postLocationRequest)
     {
         return new Location
         {
@@ -33,6 +33,16 @@ public class LocationMapper
             Name = postLocationRequest.Name,
             Latitude = postLocationRequest.Latitude,
             Longitude = postLocationRequest.Longitude
+        };
+    }
+    public Location PutLocationRequestToLocation(PutLocationRequst putLocationRequest)
+    {
+        return new Location
+        {
+            Id = putLocationRequest.Id,
+            Name = putLocationRequest.Name,
+            Latitude = putLocationRequest.Latitude,
+            Longitude = putLocationRequest.Longitude
         };
     }
 }

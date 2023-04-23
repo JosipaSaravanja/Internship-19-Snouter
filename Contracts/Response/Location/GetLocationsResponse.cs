@@ -2,5 +2,5 @@
 
 public class GetLocationsResponse
 {
-    public List<GetLocationsResponse> Locations { get; set; }
+    public List<GetLocationResponse> Locations { get; set; }
 }

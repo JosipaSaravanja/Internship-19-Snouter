@@ -34,24 +34,57 @@ public class ProductsMapper
             IsSold = product.isSold
         };
     }
-    public Product GetProductRequestToProduct(PostProductsRequest postProductsRequest)
+    public Product PostProductRequestToProduct(PostProductsRequest postProductsRequest)
     {
-        return new Product
+        try
         {
-            Id = Guid.NewGuid(),
-            Name = postProductsRequest.Name,
-            Description = postProductsRequest.Description,
-            CategoryId = postProductsRequest.CategoryId,
-            Data = JObject.Parse(postProductsRequest.Data),
-            SubCategoryId = postProductsRequest.SubCategoryId,
-            LocationId = postProductsRequest.LocationId,
-            BuyerId = postProductsRequest.BuyerId,
-            SellerId = postProductsRequest.SellerId,
-            ImageUrl = postProductsRequest.Images,
-            Price = (double)postProductsRequest.Price,
-            CreatedAt = DateTime.Now,
-            isSold = false
-        };
+            return new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = postProductsRequest.Name,
+                Description = postProductsRequest.Description,
+                CategoryId = postProductsRequest.CategoryId,
+                Data = JObject.Parse(@postProductsRequest.Data),
+                SubCategoryId = postProductsRequest.SubCategoryId,
+                LocationId = postProductsRequest.LocationId,
+                BuyerId = postProductsRequest.BuyerId,
+                SellerId = postProductsRequest.SellerId,
+                ImageUrl = postProductsRequest.Images,
+                Price = (double)postProductsRequest.Price,
+                CreatedAt = DateTime.Now,
+                isSold = false
+            };
+        }
+        catch
+        {
+            return null;
+        }
+    }
+    public Product PutProductRequestToProduct(PutProductsRequest putProductsRequest)
+    {
+        try
+        {
+            return new Product
+            {
+                Id = putProductsRequest.Id,
+                Name = putProductsRequest.Name,
+                Description = putProductsRequest.Description,
+                CategoryId = putProductsRequest.CategoryId,
+                Data = JObject.Parse(@putProductsRequest.Data),
+                SubCategoryId = putProductsRequest.SubCategoryId,
+                LocationId = putProductsRequest.LocationId,
+                BuyerId = putProductsRequest.BuyerId,
+                SellerId = putProductsRequest.SellerId,
+                ImageUrl = putProductsRequest.Images,
+                Price = (double)putProductsRequest.Price,
+                CreatedAt = DateTime.Now,
+                isSold = false
+            };
+        }
+        catch
+        {
+            return null;
+        }
     }
     
     

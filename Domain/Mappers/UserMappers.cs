@@ -28,7 +28,7 @@ public class UserMappers
             Purchases = _context.Products.Where(x => x.BuyerId == user.Id).Select(x => x.Id).ToList()
         };
     }
-    public User GetUserResponseToUser(PostUserRequest postUserRequest)
+    public User PostUserRequestToUser(PostUserRequest postUserRequest)
     {
         return new User
         {
@@ -38,6 +38,19 @@ public class UserMappers
             Name = postUserRequest.Name,
             Bio = postUserRequest.Bio,
             IsAdmin = postUserRequest.IsAdmin
+        };
+    }
+    public User PutUserRequestToUser(PutUserRequest putUserRequest)
+    {
+        return new User
+        {
+            Id = putUserRequest.Id,
+            Email = putUserRequest.Email,
+            LocationId = putUserRequest.LocationId,
+            Name = putUserRequest.Name,
+            Bio = putUserRequest.Bio,
+            IsAdmin = putUserRequest.IsAdmin,
+            Password =putUserRequest.Password
         };
     }
 }
