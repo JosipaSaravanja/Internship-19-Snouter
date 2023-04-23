@@ -129,6 +129,84 @@ public static class Seeder
             },
         };
 
-        //modelBuilder.Entity<Location>().HasData(locations);
+        var users = new List<User>
+        {
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Joe Snow",
+                Bio="King in the North",
+                Email = "joe.snow@gmail.com",
+                Password = "123456789",
+                IsAdmin = false,
+                LocationId=locations[0].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Arnie Arny",
+                Bio="Dev developer",
+                Email = "arnie.arny@gmail.com",
+                Password = "987654321",
+                IsAdmin = false,
+                LocationId=locations[0].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Modi Boi",
+                Bio="Backend <3",
+                Email = "jan.jovis@gmail.com",
+                Password = "DrModun-06",
+                IsAdmin = false,
+                LocationId=locations[1].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Finley Rivas",
+                Bio="Guy (I guess) named Finley",
+                Email = "finley.rivas@gmail.com",
+                Password = "Finley-07",
+                IsAdmin = false,
+                LocationId=locations[1].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Peter Ferguson",
+                Bio="Guy named Peter",
+                Email = "peter.ferguson@gmail.com",
+                Password = "Peter-08",
+                IsAdmin = false,
+                LocationId=locations[2].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Jada Shea",
+                Bio="Woman named Jada",
+                Email = "jada.shea@gmail.com",
+                Password = "Jada-93",
+                IsAdmin = false,
+                LocationId=locations[3].Id,
+            },
+
+            new User
+            {
+                Id = Guid.NewGuid(),
+                Name="Rayan Mitchell",
+                Bio="Guy named Rayan",
+                Email = "rayan.mitchell@gmail.com",
+                Password = "Rayan-85",
+                IsAdmin = false,
+                LocationId=locations[4].Id,
+            }
+        };
     }
 }
