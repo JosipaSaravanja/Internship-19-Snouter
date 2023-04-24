@@ -92,43 +92,6 @@ public static class Seeder
             },
         };
 
-        var categories = new List<Category>
-        {
-            new Category{ 
-                Id = Guid.NewGuid(), 
-                Name = "Vehicles",
-                Description="Category about vehicles and stuff",
-            },
-
-            new Category
-            {
-                Id = Guid.NewGuid(), 
-                Name = "House",
-                Description="Category about houses and stuff",
-            },
-
-            new Category
-            {
-                Id = Guid.NewGuid(), 
-                Name = "Electronics",
-                Description="Category about electronics and stuff",
-            },
-
-            new Category
-            {
-                Id = Guid.NewGuid(), 
-                Name = "Clothes",
-                Description="Category about clothes and stuff",
-            },
-
-            new Category
-            {
-                Id = Guid.NewGuid(), 
-                Name = "Books",
-                Description="Category about books and stuff",
-            },
-        };
-
         var users = new List<User>
         {
             new User
@@ -208,5 +171,108 @@ public static class Seeder
                 LocationId=locations[4].Id,
             }
         };
+
+        var categories = new List<Category>
+        {
+            new Category{ 
+                Id = Guid.NewGuid(), 
+                Name = "Vehicles",
+                Description="Category about vehicles and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "House",
+                Description="Category about houses and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Electronics",
+                Description="Category about electronics and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Clothes",
+                Description="Category about clothes and stuff",
+            },
+
+            new Category
+            {
+                Id = Guid.NewGuid(), 
+                Name = "Books",
+                Description="Category about books and stuff",
+            },
+        };
+
+        var subCategories = new List<SubCategory>
+        {
+            new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name="Bikes",
+                Description="SubCatergy about bikes and stuff",
+                CategoryId= categories[0].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name="Cars",
+                Description="SubCatergy about cars and stuff",
+                CategoryId= categories[0].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name="Houses",
+                Description="SubCatergy about houses and stuff",
+                CategoryId= categories[1].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory {
+                Id = Guid.NewGuid(),
+                Name="Apartments",
+                Description="SubCatergy about apartments and stuff",
+                CategoryId= categories[1].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory
+            {
+                Id= Guid.NewGuid(),
+                Name="Laptops",
+                Description="SubCatergy about laptops and stuff",
+                CategoryId= categories[2].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name="Pants",
+                Description="SubCatergy about pants and stuff",
+                CategoryId= categories[3].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+
+            new SubCategory
+            {
+                Id = Guid.NewGuid(),
+                Name="Books",
+                Description="SubCatergy about books and stuff",
+                CategoryId= categories[4].Id,
+                Schema= JSchema.Parse(@"{ 'type': 'object', 'properties': { 'name': {'type':'string'}, 'roles': {'type': 'array'} } }")
+            },
+        };
+
     }
 }
