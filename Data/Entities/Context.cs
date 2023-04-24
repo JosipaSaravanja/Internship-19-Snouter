@@ -69,6 +69,9 @@ public class SnouterContext : DbContext
             .HasConversion(
                 v => v.ToString(),
                 v => Newtonsoft.Json.JsonConvert.DeserializeObject<Newtonsoft.Json.Schema.JSchema>(v));
+        
+        Seeder.Seed(modelBuilder);
     }
     
+
 }

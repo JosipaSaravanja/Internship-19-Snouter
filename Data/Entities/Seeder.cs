@@ -283,11 +283,11 @@ public static class Seeder
                 Description = "First book in Harry Potter book serial",
                 Price = 100,
                 ImageUrl = new List<string>{
-                    "https://cdn.ozone.hr/media/catalog/product/cache/1/image/400x498/a4e40ebdc3e371adff845072e1c73f37/h/a/a19438e622aa321a0e73f360f1f3f855/harry-potter-and-the-philosopher-s-stone-30.jpg"
+                    "https://cdn.ozone.hr/media/catalog/product/cache/1/image/400x498/a4e40ebdc3e371adff845072e1c73f37/h/a/a19438e622aa321a0e73f360f1f3f855/harry-potter-and-the-philosopher-s-stone-30.jpg",
                     "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg"
                 },
                 CategoryId = categories[4].Id,
-                SubCategoryId = subCategories[7].Id,
+                SubCategoryId = subCategories[6].Id,
                 LocationId = locations[3].Id,
                 BuyerId= users[1].Id,
                 SellerId= users[1].Id,
@@ -308,7 +308,7 @@ public static class Seeder
                     "https://m.media-amazon.com/images/I/91OINeHnJGL._AC_UF1000,1000_QL80_.jpg"
                 },
                 CategoryId = categories[4].Id,
-                SubCategoryId = subCategories[7].Id,
+                SubCategoryId = subCategories[6].Id,
                 LocationId = locations[3].Id,
                 BuyerId= users[4].Id,
                 SellerId= users[4].Id,
@@ -329,7 +329,7 @@ public static class Seeder
                     "https://www.fabricsight.com/blogs/posts/fabrics-for-trousers-top-10-fabrics-for-your-trousers-complete-guide"
                 },
                 CategoryId = categories[4].Id,
-                SubCategoryId = subCategories[7].Id,
+                SubCategoryId = subCategories[6].Id,
                 LocationId = locations[3].Id,
                 BuyerId= users[5].Id,
                 SellerId= users[5].Id,
