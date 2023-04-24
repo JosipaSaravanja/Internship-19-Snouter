@@ -274,5 +274,138 @@ public static class Seeder
             },
         };
 
+        var products = new List<Product>
+        {
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Harry Potter and the philosopher's stone",
+                Description = "First book in Harry Potter book serial",
+                Price = 100,
+                ImageUrl = new List<string>{
+                    "https://cdn.ozone.hr/media/catalog/product/cache/1/image/400x498/a4e40ebdc3e371adff845072e1c73f37/h/a/a19438e622aa321a0e73f360f1f3f855/harry-potter-and-the-philosopher-s-stone-30.jpg"
+                    "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg"
+                },
+                CategoryId = categories[4].Id,
+                SubCategoryId = subCategories[7].Id,
+                LocationId = locations[3].Id,
+                BuyerId= users[1].Id,
+                SellerId= users[1].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            },
+
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Harry Potter and the chamber of secrets",
+                Description = "Second book in Harry Potter book serial",
+                Price = 200,
+                ImageUrl = new List<string>
+                {
+                    "https://shop.skolskaknjiga.hr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/7/173972.jpg",
+                    "https://m.media-amazon.com/images/I/91OINeHnJGL._AC_UF1000,1000_QL80_.jpg"
+                },
+                CategoryId = categories[4].Id,
+                SubCategoryId = subCategories[7].Id,
+                LocationId = locations[3].Id,
+                BuyerId= users[4].Id,
+                SellerId= users[4].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            },
+
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Trousers",
+                Description = "Made out of cotton.",
+                Price = 150,
+                ImageUrl = new List<string>
+                {
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/1200px-Trousers-colourisolated.jpg",
+                    "https://www.fabricsight.com/blogs/posts/fabrics-for-trousers-top-10-fabrics-for-your-trousers-complete-guide"
+                },
+                CategoryId = categories[4].Id,
+                SubCategoryId = subCategories[7].Id,
+                LocationId = locations[3].Id,
+                BuyerId= users[5].Id,
+                SellerId= users[5].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            },
+
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Bike",
+                Description = "Cool mountain bike black color",
+                Price = 1000,
+                ImageUrl = new List<string>
+                {
+                    "https://s3.us-east-1.amazonaws.com/craft-marinbikes/images/2020/bikes/category/header/_1200x630_fit_center-center_82_none/23-rzxr-action-65.jpg?mtime=1668448653",
+                    "https://images.immediate.co.uk/production/volatile/sites/21/2020/06/Santa-Cruz-5010-CC-X01-RSV-25-1ddbe5a.jpg?quality=90&resize=768,574"
+                },
+                CategoryId = categories[0].Id,
+                SubCategoryId = subCategories[0].Id,
+                LocationId = locations[1].Id,
+                BuyerId= users[3].Id,
+                SellerId= users[3].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            },
+
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Tires",
+                Description = "Cool car black color",
+                Price = 10000,
+                ImageUrl = new List<string>
+                {
+                    "https://hips.hearstapps.com/hmg-prod/images/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg?resize=2048:*    ",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-MO724XZahMAnTCwgdi0vc6rrPe9mlv1odARV9W0DA&s"
+                },
+                CategoryId = categories[0].Id,
+                SubCategoryId = subCategories[1].Id,
+                LocationId = locations[1].Id,
+                BuyerId= users[6].Id,
+                SellerId= users[6].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            },
+
+            new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = "Tires",
+                Description = "Cool car black color",
+                Price = 10000,
+                ImageUrl = new List<string>
+                {
+                    "https://hips.hearstapps.com/hmg-prod/images/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg?resize=2048:*    ",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-MO724XZahMAnTCwgdi0vc6rrPe9mlv1odARV9W0DA&s"
+                },
+                CategoryId = categories[1].Id,
+                SubCategoryId = subCategories[2].Id,
+                LocationId = locations[6].Id,
+                BuyerId= users[5].Id,
+                SellerId= users[5].Id,
+                CreatedAt= DateTime.UtcNow,
+                Data = JObject.Parse(@"{ 'name': 'string', 'roles': ['string', 'string'] }"),
+                isSold = false,
+            }
+        };
+
+        modelBuilder.Entity<Location>().HasData(locations);
+        modelBuilder.Entity<Category>().HasData(categories);
+        modelBuilder.Entity<SubCategory>().HasData(subCategories);
+        modelBuilder.Entity<Product>().HasData(products);
+        modelBuilder.Entity<User>().HasData(users);
     }
 }
