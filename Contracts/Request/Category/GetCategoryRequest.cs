@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Request.Category;
+﻿namespace Contracts.Request.Category;
 
 public class GetCategoryRequest
 {

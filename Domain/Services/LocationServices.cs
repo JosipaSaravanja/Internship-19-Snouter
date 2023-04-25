@@ -1,7 +1,9 @@
-﻿using ClassLibrary1.Request.Location;
-using ClassLibrary1.Response.Location;
+﻿using Contracts.Request.Location;
+using Contracts.Response.Location;
 using Domain.Mappers;
 using Domain.Repository;
+using Domain.Validation;
+using FluentValidation;
 
 namespace Domain.Services;
 
@@ -9,11 +11,12 @@ public class LocationServices
 {
     private readonly LocationRepository _locationRepository;
     private readonly LocationMapper _locationMapper;
-    
-    public LocationServices(LocationRepository locationRepository, LocationMapper locationMapper)
+    private readonly LocationValidaton _locationValidaton;
+    public LocationServices(LocationRepository locationRepository, LocationMapper locationMapper, LocationValidaton locationValidaton)
     {
         _locationRepository = locationRepository;
         _locationMapper = locationMapper;
+        _locationValidaton = locationValidaton;
     }
     
     public async Task<GetLocationResponse> GetLocationById(Guid id)
@@ -34,6 +37,7 @@ public class LocationServices
     public async Task<PostLocationResponse> PostLocation(PostLocationRequest postLocationRequest)
     {
         var location = _locationMapper.PostLocationRequestToLocation(postLocationRequest);
+        await _locationValidaton.ValidateAndThrowAsync(location);
         var addition = await _locationRepository.PostLocation(location);
         if (!addition) return new PostLocationResponse {IsCompleted = false, Location = null};
         return new PostLocationResponse()
@@ -46,6 +50,7 @@ public class LocationServices
     public async Task<PutLocationResponse> PutLocation(PutLocationRequst putLocationRequest)
     {
         var location = _locationMapper.PutLocationRequestToLocation(putLocationRequest);
+        await _locationValidaton.ValidateAndThrowAsync(location);
         var update = await _locationRepository.PutLocation(location);
         if (!update) return new PutLocationResponse {IsCompleted = false, Location = null};
         return new PutLocationResponse

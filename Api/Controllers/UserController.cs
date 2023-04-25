@@ -1,5 +1,5 @@
-﻿using ClassLibrary1.Request.User;
-using ClassLibrary1.Response.User;
+﻿using Contracts.Request.User;
+using Contracts.Response.User;
 using Domain.Mappers;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;

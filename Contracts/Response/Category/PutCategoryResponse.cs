@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Response.Category;
+﻿namespace Contracts.Response.Category;
 
 public class PutCategoryResponse
 {

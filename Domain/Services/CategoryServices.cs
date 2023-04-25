@@ -1,8 +1,10 @@
-﻿using ClassLibrary1.Request.Category;
-using ClassLibrary1.Response.Category;
+﻿using Contracts.Request.Category;
+using Contracts.Response.Category;
 using Data;
 using Domain.Mappers;
 using Domain.Repository;
+using Domain.Validation;
+using FluentValidation;
 
 namespace Domain.Services;
 
@@ -10,11 +12,14 @@ public class CategoryServices
 {
     private readonly CategoryRepository _repo;
     private readonly CategoryMapper _categoryMapper;
+    private readonly CategoryValidation _categoryValidation;
     
-    public CategoryServices(CategoryRepository context, CategoryMapper categoryMapper)
+    public CategoryServices(CategoryRepository context, CategoryMapper categoryMapper, CategoryValidation categoryValidation)
     {
         _repo = context;
         _categoryMapper = categoryMapper;
+        
+        _categoryValidation = categoryValidation;
     }
     
     public async Task<GetCategoriesResponse> GetAllCategoriesService()
@@ -33,6 +38,7 @@ public class CategoryServices
     public async Task<PostCategoryResponse> PostCategoryService(PostCategoryRequest postCategoryRequest)
     {
         var category = _categoryMapper.PostCategoryRequestToCategory(postCategoryRequest);
+        await _categoryValidation.ValidateAndThrowAsync(category);
         var addition = await _repo.PostCategory(category);
         if (!addition) return new PostCategoryResponse {IsCompleted = false, Category = null};
         return new PostCategoryResponse
@@ -44,6 +50,7 @@ public class CategoryServices
     public async Task<PutCategoryResponse> PutCategoryService(PutCategoryRequest putCategoryRequest)
     {
         var category = _categoryMapper.PutCategoryRequestToCategory(putCategoryRequest);
+        await _categoryValidation.ValidateAndThrowAsync(category);
         var update = await _repo.PutCategory(category);
         if (!update) return new PutCategoryResponse {IsCompleted = false, Category = null};
         return new PutCategoryResponse

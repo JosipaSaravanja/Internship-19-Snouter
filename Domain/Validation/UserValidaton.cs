@@ -2,9 +2,9 @@ using Data.Entities;
 
 namespace Domain.Validation;
 using FluentValidation;
-public class UserValidator : AbstractValidator<User>
+public class UserValidaton : AbstractValidator<User>
 {
-    public UserValidator()
+    public UserValidaton()
     {
         RuleFor(x => x.Id).NotEmpty();
         RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");

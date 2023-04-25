@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Request.User;
+﻿namespace Contracts.Request.User;
 
 public class GetUserRequest
 {

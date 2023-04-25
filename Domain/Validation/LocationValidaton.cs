@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Domain.Validation;
 
-public class LocationValidator:AbstractValidator<Location>
+public class LocationValidaton:AbstractValidator<Location>
 {
-    public LocationValidator()
+    public LocationValidaton()
     {
         RuleFor(x => x.Id).NotEmpty();
         RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");

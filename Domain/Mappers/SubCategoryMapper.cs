@@ -1,5 +1,5 @@
-﻿using ClassLibrary1.Request.SubCategory;
-using ClassLibrary1.Response.SubCategory;
+﻿using Contracts.Request.SubCategory;
+using Contracts.Response.SubCategory;
 using Data;
 using Data.Entities;
 using Newtonsoft.Json.Schema;

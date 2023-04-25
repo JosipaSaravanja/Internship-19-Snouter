@@ -2,9 +2,9 @@ using Data.Entities;
 
 namespace Domain.Validation;
 using FluentValidation;
-public class ProductValidator : AbstractValidator<Product>
+public class ProductValidaton : AbstractValidator<Product>
 {
-    public ProductValidator()
+    public ProductValidaton()
     {
         RuleFor(x => x.Id).NotEmpty();
         RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");

@@ -1,4 +1,6 @@
-﻿namespace ClassLibrary1.Response.SubCategory;
+﻿using Contracts.Response.SubCategory;
+
+namespace Contracts.Response.SubCategory;
 
 public class PostSubCategoryResponse
 {

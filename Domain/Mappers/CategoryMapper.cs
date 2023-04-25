@@ -1,5 +1,5 @@
-﻿using ClassLibrary1.Request.Category;
-using ClassLibrary1.Response.Category;
+﻿using Contracts.Request.Category;
+using Contracts.Response.Category;
 using Data;
 using Data.Entities;
 

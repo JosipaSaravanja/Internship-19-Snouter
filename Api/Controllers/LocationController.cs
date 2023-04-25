@@ -1,5 +1,5 @@
-﻿using ClassLibrary1.Request.Location;
-using ClassLibrary1.Response.Location;
+﻿using Contracts.Request.Location;
+using Contracts.Response.Location;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 

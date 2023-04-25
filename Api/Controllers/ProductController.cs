@@ -1,5 +1,5 @@
-using ClassLibrary1.Request.Products;
-using ClassLibrary1.Response.Products;
+using Contracts.Request.Products;
+using Contracts.Response.Products;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,7 +1,9 @@
-﻿using ClassLibrary1.Request.Products;
-using ClassLibrary1.Response.Products;
+﻿using Contracts.Request.Products;
+using Contracts.Response.Products;
 using Domain.Mappers;
 using Domain.Repository;
+using Domain.Validation;
+using FluentValidation;
 
 namespace Domain.Services;
 
@@ -9,6 +11,7 @@ public class ProductsServices
 {
     private readonly ProductRepository _productRepository;
     private readonly ProductsMapper _productsMapper;
+    private readonly ProductValidaton _productsValidaton;
     
     public ProductsServices(ProductRepository productRepository, ProductsMapper productsMapper)
     {
@@ -31,6 +34,7 @@ public class ProductsServices
     public async Task<PostProductsResponse> PostProduct(PostProductsRequest postProductRequest)
     {
         var product = _productsMapper.PostProductRequestToProduct(postProductRequest);
+        await _productsValidaton.ValidateAndThrowAsync(product);
         if (product == null) return new PostProductsResponse {IsCompleted = false, Product = null};
         var addition = await _productRepository.PostProduct(product);
         if (!addition) return new PostProductsResponse {IsCompleted = false, Product = null};
@@ -43,6 +47,7 @@ public class ProductsServices
     public async Task<PutProductResponse> PutProduct(PutProductsRequest putProductRequest)
     {
         var product = _productsMapper.PutProductRequestToProduct(putProductRequest);
+        await _productsValidaton.ValidateAndThrowAsync(product);
         if (product == null) return new PutProductResponse {IsCompleted = false, Product = null};
         var update =  await _productRepository.PutProduct(product);
         if (!update) return new PutProductResponse {IsCompleted = false, Product = null};

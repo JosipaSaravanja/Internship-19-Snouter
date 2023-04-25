@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Response.Location;
+﻿namespace Contracts.Response.Location;
 
 public class GetLocationsResponse
 {

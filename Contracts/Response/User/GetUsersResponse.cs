@@ -1,4 +1,5 @@
-﻿namespace ClassLibrary1.Response.User;
+﻿
+namespace Contracts.Response.User;
 
 public class GetUsersResponse
 {

@@ -1,5 +1,5 @@
-﻿using ClassLibrary1.Request.SubCategory;
-using ClassLibrary1.Response.SubCategory;
+﻿using Contracts.Request.SubCategory;
+using Contracts.Response.SubCategory;
 using Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 

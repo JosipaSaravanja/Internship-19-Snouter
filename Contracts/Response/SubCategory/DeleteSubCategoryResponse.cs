@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Response.SubCategory;
+﻿namespace Contracts.Response.SubCategory;
 
 public class DeleteSubCategoryResponse
 {

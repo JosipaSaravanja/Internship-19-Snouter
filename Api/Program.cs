@@ -1,4 +1,5 @@
 using Domain;
+using Domain.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ValidationMiddleware>();
 
 app.UseAuthorization();
 
