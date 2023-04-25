@@ -46,7 +46,6 @@ public class UserController : ControllerBase
             LocationId = request.LocationId,
             Name = request.Name,
             Bio = request.Bio,
-            IsAdmin = request.IsAdmin,
             Password = request.Password
         };
         var response = await _userServices.PutUser(putUserRequest, cancellationToken);

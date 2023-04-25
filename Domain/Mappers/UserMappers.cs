@@ -23,7 +23,6 @@ public class UserMappers
             LocationId = user.LocationId,
             Name = user.Name,
             Bio = user.Bio,
-            IsAdmin = user.IsAdmin,
             Products = _context.Products.Where(x => x.SellerId == user.Id).Select(x => x.Id).ToList(),
             Purchases = _context.Products.Where(x => x.BuyerId == user.Id).Select(x => x.Id).ToList()
         };
@@ -37,7 +36,6 @@ public class UserMappers
             LocationId = postUserRequest.LocationId,
             Name = postUserRequest.Name,
             Bio = postUserRequest.Bio,
-            IsAdmin = postUserRequest.IsAdmin,
             Password = postUserRequest.Password
         };
     }
@@ -50,7 +48,6 @@ public class UserMappers
             LocationId = putUserRequest.LocationId,
             Name = putUserRequest.Name,
             Bio = putUserRequest.Bio,
-            IsAdmin = putUserRequest.IsAdmin,
             Password =putUserRequest.Password
         };
     }
