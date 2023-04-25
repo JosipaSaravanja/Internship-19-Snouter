@@ -19,9 +19,9 @@ public class UserServices
         _userMappers = userMappers;
         _userValidaton = userValidaton;
     }
-    public async Task<GetUserResponse> GetUserById(Guid id)
+    public async Task<GetUserResponse> GetUserById(Guid id, CancellationToken cancellationToken = default)
     {
-        var user = await _userRepository.GetUserById(id);
+        var user = await _userRepository.GetUserById(id, cancellationToken);
         return _userMappers.UserToGetUserResponse(user);
     }
     public async Task<GetUsersResponse> GetAllUsers()
@@ -32,11 +32,11 @@ public class UserServices
             Users = users.Select(x => _userMappers.UserToGetUserResponse(x)).ToList()
         };
     }
-    public async Task<PostUserResponse> PostUser(PostUserRequest postUserRequest)
+    public async Task<PostUserResponse> PostUser(PostUserRequest postUserRequest, CancellationToken cancellationToken = default)
     {
         var user = _userMappers.PostUserRequestToUser(postUserRequest);
         await _userValidaton.ValidateAndThrowAsync(user);
-        var addition = await _userRepository.PostUser(user);
+        var addition = await _userRepository.PostUser(user, cancellationToken);
         if (!addition) return new PostUserResponse {IsCompleted = false, User = null};
         return new PostUserResponse()
         {
@@ -44,11 +44,11 @@ public class UserServices
             User = _userMappers.UserToGetUserResponse(user)
         };
     }
-    public async Task<PutUserResponse> PutUser(PutUserRequest putUserRequest)
+    public async Task<PutUserResponse> PutUser(PutUserRequest putUserRequest, CancellationToken cancellationToken = default)
     {
         var user = _userMappers.PutUserRequestToUser(putUserRequest);
         await _userValidaton.ValidateAndThrowAsync(user);
-        var update = await _userRepository.PutUser(user);
+        var update = await _userRepository.PutUser(user, cancellationToken);
         if (!update) return new PutUserResponse {IsCompleted = false, User = null};
         return new PutUserResponse()
         {
@@ -56,9 +56,9 @@ public class UserServices
             User = _userMappers.UserToGetUserResponse(user)
         };
     }
-    public async Task<DeleteUserResponse> DeleteUser(Guid id)
+    public async Task<DeleteUserResponse> DeleteUser(Guid id, CancellationToken cancellationToken = default)
     {
-        var deletion = await _userRepository.DeleteUser(id);
+        var deletion = await _userRepository.DeleteUser(id, cancellationToken);
         return new DeleteUserResponse {IsCompleted = deletion};
     }
     

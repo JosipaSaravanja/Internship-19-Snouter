@@ -19,9 +19,9 @@ public class LocationServices
         _locationValidaton = locationValidaton;
     }
     
-    public async Task<GetLocationResponse> GetLocationById(Guid id)
+    public async Task<GetLocationResponse> GetLocationById(Guid id, CancellationToken cancellationToken = default)
     {
-        var location = await _locationRepository.GetLocationById(id);
+        var location = await _locationRepository.GetLocationById(id, cancellationToken);
         return _locationMapper.LocationToGetLocationResponse(location);
     }
     
@@ -34,11 +34,11 @@ public class LocationServices
         };
     }
     
-    public async Task<PostLocationResponse> PostLocation(PostLocationRequest postLocationRequest)
+    public async Task<PostLocationResponse> PostLocation(PostLocationRequest postLocationRequest, CancellationToken cancellationToken = default)
     {
         var location = _locationMapper.PostLocationRequestToLocation(postLocationRequest);
         await _locationValidaton.ValidateAndThrowAsync(location);
-        var addition = await _locationRepository.PostLocation(location);
+        var addition = await _locationRepository.PostLocation(location, cancellationToken);
         if (!addition) return new PostLocationResponse {IsCompleted = false, Location = null};
         return new PostLocationResponse()
         {
@@ -47,11 +47,11 @@ public class LocationServices
         };
     }
     
-    public async Task<PutLocationResponse> PutLocation(PutLocationRequst putLocationRequest)
+    public async Task<PutLocationResponse> PutLocation(PutLocationRequst putLocationRequest, CancellationToken cancellationToken = default)
     {
         var location = _locationMapper.PutLocationRequestToLocation(putLocationRequest);
         await _locationValidaton.ValidateAndThrowAsync(location);
-        var update = await _locationRepository.PutLocation(location);
+        var update = await _locationRepository.PutLocation(location, cancellationToken);
         if (!update) return new PutLocationResponse {IsCompleted = false, Location = null};
         return new PutLocationResponse
         {
@@ -60,9 +60,9 @@ public class LocationServices
         };
     }
     
-    public async Task<DeleteLocationResponse> DeleteLocation(Guid id)
+    public async Task<DeleteLocationResponse> DeleteLocation(Guid id, CancellationToken cancellationToken = default)
     {
-        var delete = await _locationRepository.DeleteLocation(id);
+        var delete = await _locationRepository.DeleteLocation(id, cancellationToken);
         if (!delete) return new DeleteLocationResponse {IsCompleted = false};
         return new DeleteLocationResponse {IsCompleted = true};
     }

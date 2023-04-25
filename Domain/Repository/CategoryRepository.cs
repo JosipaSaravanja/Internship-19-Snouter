@@ -12,47 +12,47 @@ public class CategoryRepository
     {
         _context = context;
     }
-    public async Task<Category> GetCategoryById(Guid id)
+    public async Task<Category> GetCategoryById(Guid id, CancellationToken cancellationToken = default)
     {
-        return await Task.FromResult(_context.Categories.FirstOrDefault(x => x.Id == id));
+        return await Task.FromResult(await _context.Categories.FirstOrDefaultAsync(x => x.Id == id, cancellationToken));
     }
     public async Task<List<Category>> GetAllCategories()
     {
         return await Task.FromResult(_context.Categories.ToList());
     }
-    public async Task<bool> PostCategory(Category category)
+    public async Task<bool> PostCategory(Category category, CancellationToken cancellationToken = default)
     {
         try
         {
             await _context.Categories.AddAsync(category);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
             return false;
         }
     }
-    public async Task<bool> PutCategory(Category category)
+    public async Task<bool> PutCategory(Category category, CancellationToken cancellationToken = default)
     {
         try
         {
-            var categoryToDelete = await GetCategoryById(category.Id);
+            var categoryToDelete = await GetCategoryById(category.Id, cancellationToken);
             _context.Categories.Remove(categoryToDelete);
             await _context.Categories.AddAsync(category);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
             return false;
         }
     }
-    public async Task<bool> DeleteCategory(Guid id)
+    public async Task<bool> DeleteCategory(Guid id, CancellationToken cancellationToken = default)
     {
         try
         {
-            var category = await GetCategoryById(id);
+            var category = await GetCategoryById(id, cancellationToken);
             _context.Categories.Remove(category);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {

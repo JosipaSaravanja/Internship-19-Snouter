@@ -18,11 +18,10 @@ public class CategoryServices
     {
         _repo = context;
         _categoryMapper = categoryMapper;
-        
         _categoryValidation = categoryValidation;
     }
     
-    public async Task<GetCategoriesResponse> GetAllCategoriesService()
+    public async Task<GetCategoriesResponse> GetAllCategoriesService() //??
     {
         var categories =  await _repo.GetAllCategories();
         return new  GetCategoriesResponse
@@ -30,16 +29,16 @@ public class CategoryServices
             Categories = categories.Select(x => _categoryMapper.CategoryToGetCategoryResponse(x)).ToList()
         };
     }
-    public async Task<GetCategoryResponse> GetCategoryByIdService(Guid id)
+    public async Task<GetCategoryResponse> GetCategoryByIdService(Guid id, CancellationToken cancellationToken = default)
     {
-        var category = await _repo.GetCategoryById(id);
+        var category = await _repo.GetCategoryById(id, cancellationToken);
         return _categoryMapper.CategoryToGetCategoryResponse(category);
     }
-    public async Task<PostCategoryResponse> PostCategoryService(PostCategoryRequest postCategoryRequest)
+    public async Task<PostCategoryResponse> PostCategoryService(PostCategoryRequest postCategoryRequest, CancellationToken cancellationToken = default)
     {
         var category = _categoryMapper.PostCategoryRequestToCategory(postCategoryRequest);
         await _categoryValidation.ValidateAndThrowAsync(category);
-        var addition = await _repo.PostCategory(category);
+        var addition = await _repo.PostCategory(category, cancellationToken);
         if (!addition) return new PostCategoryResponse {IsCompleted = false, Category = null};
         return new PostCategoryResponse
         {
@@ -47,11 +46,11 @@ public class CategoryServices
             Category = _categoryMapper.CategoryToGetCategoryResponse(category)
         };
     }
-    public async Task<PutCategoryResponse> PutCategoryService(PutCategoryRequest putCategoryRequest)
+    public async Task<PutCategoryResponse> PutCategoryService(PutCategoryRequest putCategoryRequest, CancellationToken cancellationToken = default)
     {
         var category = _categoryMapper.PutCategoryRequestToCategory(putCategoryRequest);
         await _categoryValidation.ValidateAndThrowAsync(category);
-        var update = await _repo.PutCategory(category);
+        var update = await _repo.PutCategory(category, cancellationToken);
         if (!update) return new PutCategoryResponse {IsCompleted = false, Category = null};
         return new PutCategoryResponse
         {
@@ -59,9 +58,9 @@ public class CategoryServices
             Category = _categoryMapper.CategoryToGetCategoryResponse(category)
         };
     }
-    public async Task<DeleteCategoryResponse> DeleteCategoryService(Guid id)
+    public async Task<DeleteCategoryResponse> DeleteCategoryService(Guid id, CancellationToken cancellationToken = default)
     {
-        var deletion = await _repo.DeleteCategory(id);
+        var deletion = await _repo.DeleteCategory(id, cancellationToken);
         return new DeleteCategoryResponse {IsCompleted = deletion};
     }
 

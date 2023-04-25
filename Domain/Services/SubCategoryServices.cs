@@ -24,9 +24,9 @@ public class SubCategoryServices
         _subCategoryValidation = subCategoryValidation;
     }
 
-    public async Task<GetSubCategoryResponse> GetSubCategoryById(Guid id)
+    public async Task<GetSubCategoryResponse> GetSubCategoryById(Guid id, CancellationToken cancellationToken = default)
     {
-        var subCategory = await _subCategoryRepository.GetSubCategoryById(id);
+        var subCategory = await _subCategoryRepository.GetSubCategoryById(id, cancellationToken);
         return _subCategoryMappers.SubCategoryToGetSubCategoryResponse(subCategory);
     }
 
@@ -39,12 +39,12 @@ public class SubCategoryServices
                 .ToList()
         };
     }
-    public async Task<PostSubCategoryResponse> PostSubCategory(PostSubCategoryRequest postSubCategoryRequest)
+    public async Task<PostSubCategoryResponse> PostSubCategory(PostSubCategoryRequest postSubCategoryRequest, CancellationToken cancellationToken = default)
     {
         var subCategory = _subCategoryMappers.PostSubCategoryRequestToSubCategory(postSubCategoryRequest);
         await _subCategoryValidation.ValidateAndThrowAsync(subCategory);
         if (subCategory == null) return new PostSubCategoryResponse {IsCompleted = false, SubCategory = null};
-        var addition = await _subCategoryRepository.PostSubCategory(subCategory);
+        var addition = await _subCategoryRepository.PostSubCategory(subCategory, cancellationToken);
         if (!addition) return new PostSubCategoryResponse {IsCompleted = false, SubCategory = null};
         return new PostSubCategoryResponse()
         {
@@ -52,12 +52,12 @@ public class SubCategoryServices
             SubCategory = _subCategoryMappers.SubCategoryToGetSubCategoryResponse(subCategory)
         };
     }
-    public async Task<PutSubcategoryResponse> PutSubCategory(PutSubCategoryRequest putSubCategoryRequest)
+    public async Task<PutSubcategoryResponse> PutSubCategory(PutSubCategoryRequest putSubCategoryRequest, CancellationToken cancellationToken = default)
     {
         var subCategory = _subCategoryMappers.PutSubCategoryRequestToSubCategory(putSubCategoryRequest);
         await _subCategoryValidation.ValidateAndThrowAsync(subCategory);
         if (subCategory == null) return new PutSubcategoryResponse {IsCompleted = false, SubCategory = null};
-        var update = await _subCategoryRepository.PutSubCategory(subCategory);
+        var update = await _subCategoryRepository.PutSubCategory(subCategory, cancellationToken);
         if (!update) return new PutSubcategoryResponse {IsCompleted = false, SubCategory = null};
         return new PutSubcategoryResponse()
         {
@@ -65,9 +65,9 @@ public class SubCategoryServices
             SubCategory = _subCategoryMappers.SubCategoryToGetSubCategoryResponse(subCategory)
         };
     }
-    public async Task<DeleteSubCategoryResponse> DeleteSubCategory(Guid id)
+    public async Task<DeleteSubCategoryResponse> DeleteSubCategory(Guid id, CancellationToken cancellationToken = default)
     {
-        var delete = await _subCategoryRepository.DeleteSubCategory(id);
+        var delete = await _subCategoryRepository.DeleteSubCategory(id, cancellationToken);
         if (!delete) return new DeleteSubCategoryResponse {IsCompleted = false};
         return new DeleteSubCategoryResponse {IsCompleted = true};
     }

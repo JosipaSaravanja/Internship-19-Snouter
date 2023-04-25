@@ -20,21 +20,21 @@ public class SubCategroyController : ControllerBase
         return Ok(response);
     }
     [HttpGet(Routes.SubCategory.Get)]
-    public async Task<ActionResult<GetSubCategoryResponse>> GetSubCategoryById([FromRoute] Guid id)
+    public async Task<ActionResult<GetSubCategoryResponse>> GetSubCategoryById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        var response = await _subCategoryServices.GetSubCategoryById(id);
+        var response = await _subCategoryServices.GetSubCategoryById(id, cancellationToken);
         if (response == null) return NotFound();
         return Ok(response);
     }
     [HttpPost(Routes.SubCategory.Post)]
-    public async Task<ActionResult<PostSubCategoryResponse>> PostSubCategory([FromBody] PostSubCategoryRequest postSubCategoryRequest)
+    public async Task<ActionResult<PostSubCategoryResponse>> PostSubCategory([FromBody] PostSubCategoryRequest postSubCategoryRequest, CancellationToken cancellationToken)
     {
-        var response = await _subCategoryServices.PostSubCategory(postSubCategoryRequest);
+        var response = await _subCategoryServices.PostSubCategory(postSubCategoryRequest, cancellationToken);
         if (response.SubCategory == null) return NotFound();
         return Ok(response);
     }
     [HttpPut(Routes.SubCategory.Put)]
-    public async Task<ActionResult<PutSubcategoryResponse>> PutSubCategory([FromRoute] Guid id, [FromBody] PostSubCategoryRequest request)
+    public async Task<ActionResult<PutSubcategoryResponse>> PutSubCategory([FromRoute] Guid id, [FromBody] PostSubCategoryRequest request, CancellationToken cancellationToken)
     {
         var putSubCategoryRequest = new PutSubCategoryRequest
         {
@@ -44,14 +44,14 @@ public class SubCategroyController : ControllerBase
             Description = request.Description,
             Schema = request.Schema
         };
-        var response = await _subCategoryServices.PutSubCategory(putSubCategoryRequest);
+        var response = await _subCategoryServices.PutSubCategory(putSubCategoryRequest, cancellationToken);
         if (response.SubCategory == null) return NotFound();
         return Ok(response);
     }
     [HttpDelete(Routes.SubCategory.Delete)]
-    public async Task<ActionResult<DeleteSubCategoryResponse>> DeleteSubCategory(Guid id)
+    public async Task<ActionResult<DeleteSubCategoryResponse>> DeleteSubCategory(Guid id, CancellationToken cancellationToken)
     {
-        var response = await _subCategoryServices.DeleteSubCategory(id);
+        var response = await _subCategoryServices.DeleteSubCategory(id, cancellationToken);
         if (!response.IsCompleted) return NotFound();
         return Ok(response);
     }
