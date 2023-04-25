@@ -1,9 +1,12 @@
-﻿using Contracts.Request.SubCategory;
+﻿using Api.Constants;
+using Contracts.Request.SubCategory;
 using Contracts.Response.SubCategory;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
+[Authorize(AuthorizationConstants.AdminUserPolicyName)]
 [ApiController]
 public class SubCategroyController : ControllerBase
 {
@@ -12,6 +15,7 @@ public class SubCategroyController : ControllerBase
     {
         _subCategoryServices = subCategoryServices;
     }
+    [AllowAnonymous]
     [HttpGet(Routes.SubCategory.GetAll)]
     public async Task<ActionResult<GetSubCategoryResponse>> GetAllSubCategories()
     {
@@ -19,6 +23,7 @@ public class SubCategroyController : ControllerBase
         if (response.SubCategories == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.SubCategory.Get)]
     public async Task<ActionResult<GetSubCategoryResponse>> GetSubCategoryById([FromRoute] Guid id, CancellationToken cancellationToken)
     {

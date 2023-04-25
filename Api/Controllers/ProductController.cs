@@ -1,10 +1,12 @@
+using Api.Constants;
 using Contracts.Request.Products;
 using Contracts.Response.Products;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
-
+[Authorize(AuthorizationConstants.ValidUserPolicyName)]
 [ApiController]
 public class ProductsController : ControllerBase
 {
@@ -13,13 +15,15 @@ public class ProductsController : ControllerBase
    {
        _productsServices = productsServices;
    }
-    [HttpGet(Routes.Products.GetAll)]
+   [AllowAnonymous]
+   [HttpGet(Routes.Products.GetAll)]
     public async Task<ActionResult<GetProductsResponse>> GetAllProducts()
     {
         var response = await _productsServices.GetAllProducts();
         if (response.Products == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Products.Get)]
     public async Task<ActionResult<GetProductResponse>> GetProductById([FromRoute] Guid id, CancellationToken cancellationToken)
     {

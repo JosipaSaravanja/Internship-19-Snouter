@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Api.Controllers;
- 
+ //what are the symptoms of alzheimer's disease
 [ApiController]
 public class IdentityController : ControllerBase
 {

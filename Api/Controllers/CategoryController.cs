@@ -1,9 +1,12 @@
-﻿using Contracts.Request.Category;
+﻿using Api.Constants;
+using Contracts.Request.Category;
 using Contracts.Response.Category;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
+[Authorize(AuthorizationConstants.AdminUserPolicyName)]
 [ApiController]
 public class CategoryController : ControllerBase
 {
@@ -12,6 +15,7 @@ public class CategoryController : ControllerBase
     {
         _categoryServices = categoryServices;
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Category.GetAll)]
     public async Task<ActionResult<GetCategoriesResponse>> GetAllCategories()
     {
@@ -19,6 +23,7 @@ public class CategoryController : ControllerBase
         if (response.Categories == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Category.Get)]
     public async Task<ActionResult<GetCategoryResponse>> GetCategoryById([FromRoute] Guid id, CancellationToken cancellationToken)
     {

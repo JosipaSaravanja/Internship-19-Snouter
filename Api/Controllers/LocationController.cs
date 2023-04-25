@@ -1,10 +1,12 @@
-﻿using Contracts.Request.Location;
+﻿using Api.Constants;
+using Contracts.Request.Location;
 using Contracts.Response.Location;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
-
+[Authorize(AuthorizationConstants.AdminUserPolicyName)]
 [ApiController]
 public class LocationController : ControllerBase
 {
@@ -13,6 +15,7 @@ public class LocationController : ControllerBase
     {
         _locationServices = locationServices;
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Location.GetAll)]
     public async Task<ActionResult<GetLocationResponse>> GetAllLocations()
     {
@@ -20,6 +23,7 @@ public class LocationController : ControllerBase
         if (response.Locations == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Location.Get)]
     public async Task<ActionResult<GetLocationResponse>> GetLocationById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
