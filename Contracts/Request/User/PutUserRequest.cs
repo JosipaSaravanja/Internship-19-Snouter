@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Request.User;
+﻿namespace Contracts.Request.User;
 
 public class PutUserRequest
 {
@@ -8,5 +8,4 @@ public class PutUserRequest
     public string Email { get; set; } = null!;
     public string Password { get; set; } = null!;
     public Guid LocationId { get; set; }
-    public bool IsAdmin { get; set; }
 }

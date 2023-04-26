@@ -1,10 +1,12 @@
-﻿using ClassLibrary1.Request.Location;
-using ClassLibrary1.Response.Location;
+﻿using Api.Constants;
+using Contracts.Request.Location;
+using Contracts.Response.Location;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
-
+[Authorize(AuthorizationConstants.AdminUserPolicyName)]
 [ApiController]
 public class LocationController : ControllerBase
 {
@@ -13,6 +15,7 @@ public class LocationController : ControllerBase
     {
         _locationServices = locationServices;
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Location.GetAll)]
     public async Task<ActionResult<GetLocationResponse>> GetAllLocations()
     {
@@ -20,22 +23,23 @@ public class LocationController : ControllerBase
         if (response.Locations == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Location.Get)]
-    public async Task<ActionResult<GetLocationResponse>> GetLocationById([FromRoute] Guid id)
+    public async Task<ActionResult<GetLocationResponse>> GetLocationById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        var response = await _locationServices.GetLocationById(id);
+        var response = await _locationServices.GetLocationById(id, cancellationToken);
         if (response == null) return NotFound();
         return Ok(response);
     }
     [HttpPost(Routes.Location.Post)]
-    public async Task<ActionResult<PostLocationResponse>> PostLocation([FromBody] PostLocationRequest postLocationRequest)
+    public async Task<ActionResult<PostLocationResponse>> PostLocation([FromBody] PostLocationRequest postLocationRequest, CancellationToken cancellationToken)
     {
-        var response = await _locationServices.PostLocation(postLocationRequest);
+        var response = await _locationServices.PostLocation(postLocationRequest, cancellationToken);
         if (response.Location == null) return NotFound();
         return Ok(response);
     }
     [HttpPut(Routes.Location.Put)]
-    public async Task<ActionResult<PutLocationResponse>> PutLocation([FromRoute] Guid id, [FromBody] PostLocationRequest request)
+    public async Task<ActionResult<PutLocationResponse>> PutLocation([FromRoute] Guid id, [FromBody] PostLocationRequest request, CancellationToken cancellationToken )
     {
         var putLocationRequest = new PutLocationRequst
         {
@@ -44,14 +48,14 @@ public class LocationController : ControllerBase
             Latitude = request.Latitude,
             Longitude = request.Longitude
         };
-        var response = await _locationServices.PutLocation(putLocationRequest);
+        var response = await _locationServices.PutLocation(putLocationRequest, cancellationToken);
         if (response.Location == null) return NotFound(response);
         return Ok(response);
     }
     [HttpDelete(Routes.Location.Delete)]
-    public async Task<ActionResult<DeleteLocationResponse>> DeleteLocation(Guid id)
+    public async Task<ActionResult<DeleteLocationResponse>> DeleteLocation(Guid id, CancellationToken cancellationToken)
     {
-        var response = await _locationServices.DeleteLocation(id);
+        var response = await _locationServices.DeleteLocation(id, cancellationToken);
         if (!response.IsCompleted) return NotFound();
         return Ok(response);
     }

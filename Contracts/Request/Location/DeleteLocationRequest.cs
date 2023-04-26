@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Request.Location;
+﻿namespace Contracts.Request.Location;
 
 public class DeleteLocationRequest
 {

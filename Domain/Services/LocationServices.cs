@@ -1,7 +1,9 @@
-﻿using ClassLibrary1.Request.Location;
-using ClassLibrary1.Response.Location;
+﻿using Contracts.Request.Location;
+using Contracts.Response.Location;
 using Domain.Mappers;
 using Domain.Repository;
+using Domain.Validation;
+using FluentValidation;
 
 namespace Domain.Services;
 
@@ -9,16 +11,17 @@ public class LocationServices
 {
     private readonly LocationRepository _locationRepository;
     private readonly LocationMapper _locationMapper;
-    
-    public LocationServices(LocationRepository locationRepository, LocationMapper locationMapper)
+    private readonly LocationValidaton _locationValidaton;
+    public LocationServices(LocationRepository locationRepository, LocationMapper locationMapper, LocationValidaton locationValidaton)
     {
         _locationRepository = locationRepository;
         _locationMapper = locationMapper;
+        _locationValidaton = locationValidaton;
     }
     
-    public async Task<GetLocationResponse> GetLocationById(Guid id)
+    public async Task<GetLocationResponse> GetLocationById(Guid id, CancellationToken cancellationToken = default)
     {
-        var location = await _locationRepository.GetLocationById(id);
+        var location = await _locationRepository.GetLocationById(id, cancellationToken);
         return _locationMapper.LocationToGetLocationResponse(location);
     }
     
@@ -31,10 +34,11 @@ public class LocationServices
         };
     }
     
-    public async Task<PostLocationResponse> PostLocation(PostLocationRequest postLocationRequest)
+    public async Task<PostLocationResponse> PostLocation(PostLocationRequest postLocationRequest, CancellationToken cancellationToken = default)
     {
         var location = _locationMapper.PostLocationRequestToLocation(postLocationRequest);
-        var addition = await _locationRepository.PostLocation(location);
+        await _locationValidaton.ValidateAndThrowAsync(location);
+        var addition = await _locationRepository.PostLocation(location, cancellationToken);
         if (!addition) return new PostLocationResponse {IsCompleted = false, Location = null};
         return new PostLocationResponse()
         {
@@ -43,10 +47,11 @@ public class LocationServices
         };
     }
     
-    public async Task<PutLocationResponse> PutLocation(PutLocationRequst putLocationRequest)
+    public async Task<PutLocationResponse> PutLocation(PutLocationRequst putLocationRequest, CancellationToken cancellationToken = default)
     {
         var location = _locationMapper.PutLocationRequestToLocation(putLocationRequest);
-        var update = await _locationRepository.PutLocation(location);
+        await _locationValidaton.ValidateAndThrowAsync(location);
+        var update = await _locationRepository.PutLocation(location, cancellationToken);
         if (!update) return new PutLocationResponse {IsCompleted = false, Location = null};
         return new PutLocationResponse
         {
@@ -55,9 +60,9 @@ public class LocationServices
         };
     }
     
-    public async Task<DeleteLocationResponse> DeleteLocation(Guid id)
+    public async Task<DeleteLocationResponse> DeleteLocation(Guid id, CancellationToken cancellationToken = default)
     {
-        var delete = await _locationRepository.DeleteLocation(id);
+        var delete = await _locationRepository.DeleteLocation(id, cancellationToken);
         if (!delete) return new DeleteLocationResponse {IsCompleted = false};
         return new DeleteLocationResponse {IsCompleted = true};
     }

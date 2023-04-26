@@ -1,6 +1,6 @@
-﻿using ClassLibrary1.Response.User;
+﻿using Contracts.Response.User;
 
-namespace ClassLibrary1.Response.Location;
+namespace Contracts.Response.Location;
 
 public class PostLocationResponse
 {

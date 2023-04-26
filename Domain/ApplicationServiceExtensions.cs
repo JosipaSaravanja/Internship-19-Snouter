@@ -7,6 +7,8 @@ using System.Text.Json.Serialization;
 using Data;
 using Domain.Mappers;
 using Domain.Repository;
+using Domain.Validation;
+using FluentValidation;
 
 namespace Domain
 {
@@ -18,6 +20,7 @@ namespace Domain
             {
                 options.UseNpgsql("Host=localhost;Database=snouter;Username=postgres;Password=postgres");
             });
+            services.AddValidatorsFromAssemblyContaining<IApplicationMarker>(ServiceLifetime.Scoped);
             services.AddScoped<CategoryServices>();
             services.AddScoped<LocationServices>();
             services.AddScoped<CategoryServices>();

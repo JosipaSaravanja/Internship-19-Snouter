@@ -13,48 +13,48 @@ public class ProductRepository
     {
         _context = context;
     }
-    public async Task<Product> GetProductById(Guid id)
+    public async Task<Product> GetProductById(Guid id, CancellationToken cancellationToken = default)
     {
-        return await Task.FromResult(_context.Products.FirstOrDefault(x => x.Id == id));
+        return await Task.FromResult(await _context.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken));
     }
     public async Task<List<Product>> GetAllProducts()
     {
         return await Task.FromResult(_context.Products.ToList());
     }
-    public async Task<bool> PostProduct(Product product)
+    public async Task<bool> PostProduct(Product product, CancellationToken cancellationToken = default)
     {
      
             await _context.Products.AddAsync(product);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
     }
-    public async Task<bool> PutProduct(Product product)
+    public async Task<bool> PutProduct(Product product, CancellationToken cancellationToken = default)
     {
         try
         {
-            var productToDelete = await GetProductById(product.Id);
+            var productToDelete = await GetProductById(product.Id, cancellationToken);
             _context.Products.Remove(productToDelete);
             await _context.Products.AddAsync(product);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
             return false;
         }
     }
-    public async Task<bool> DeleteProduct(Guid id)
+    public async Task<bool> DeleteProduct(Guid id, CancellationToken cancellationToken = default)
     {
         try
         {
-            var product = await GetProductById(id);
+            var product = await GetProductById(id, cancellationToken);
             _context.Products.Remove(product);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
             return false;
         }
     }
-    public async Task<bool> UpdateBought (Guid id, Guid BuyerId)
+    public async Task<bool> UpdateBought (Guid id, Guid BuyerId, CancellationToken cancellationToken = default) //?
     {
         try
         {
@@ -68,7 +68,7 @@ public class ProductRepository
                 return false;
             }
 
-            var product = await GetProductById(id);
+            var product = await GetProductById(id, cancellationToken);
             if (product == null)
             {
                 return false;
@@ -79,7 +79,7 @@ public class ProductRepository
             }
             product.isSold = true;
             product.BuyerId = BuyerId;
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {

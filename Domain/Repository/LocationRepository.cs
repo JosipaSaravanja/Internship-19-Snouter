@@ -14,9 +14,9 @@ public class LocationRepository
     }
 
 
-    public async Task<Location> GetLocationById(Guid id)
+    public async Task<Location> GetLocationById(Guid id, CancellationToken cancellationToken = default)
     {
-        return await Task.FromResult(_context.Locations.FirstOrDefault(x => x.Id == id));
+        return await Task.FromResult(await _context.Locations.FirstOrDefaultAsync(x => x.Id == id, cancellationToken));
     }
 
     public async Task<List<Location>> GetAllLocations()
@@ -24,12 +24,12 @@ public class LocationRepository
         return await Task.FromResult(_context.Locations.ToList());
     }
 
-    public async Task<bool> PostLocation(Location location)
+    public async Task<bool> PostLocation(Location location, CancellationToken cancellationToken = default)
     {
         try
         {
             await _context.Locations.AddAsync(location);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
@@ -37,14 +37,14 @@ public class LocationRepository
         }
     }
 
-    public async Task<bool> PutLocation(Location location)
+    public async Task<bool> PutLocation(Location location, CancellationToken cancellationToken = default)
     {
         try
         {
-            var locationToDelete = await GetLocationById(location.Id);
+            var locationToDelete = await GetLocationById(location.Id, cancellationToken);
             _context.Locations.Remove(locationToDelete);
             await _context.Locations.AddAsync(location);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {
@@ -52,13 +52,13 @@ public class LocationRepository
         }
     }
 
-    public async Task<bool> DeleteLocation(Guid id)
+    public async Task<bool> DeleteLocation(Guid id, CancellationToken cancellationToken = default)
     {
         try
         {
-            var location = await GetLocationById(id);
+            var location = await GetLocationById(id, cancellationToken);
             _context.Locations.Remove(location);
-            return await _context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync(cancellationToken) > 0;
         }
         catch 
         {

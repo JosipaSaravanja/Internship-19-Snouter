@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Response.Products;
+﻿namespace Contracts.Response.Products;
 
 public class PostProductsResponse
 {

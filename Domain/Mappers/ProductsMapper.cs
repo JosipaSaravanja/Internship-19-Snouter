@@ -1,7 +1,7 @@
-﻿using ClassLibrary1.Request.Category;
-using ClassLibrary1.Request.Products;
-using ClassLibrary1.Response.Category;
-using ClassLibrary1.Response.Products;
+﻿using Contracts.Request.Category;
+using Contracts.Request.Products;
+using Contracts.Response.Category;
+using Contracts.Response.Products;
 using Data;
 using Data.Entities;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;

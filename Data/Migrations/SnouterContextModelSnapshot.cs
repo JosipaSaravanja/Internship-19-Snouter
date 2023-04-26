@@ -44,31 +44,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("07551d33-b0bb-4e4c-acc8-1274f199a2f4"),
+                            Id = new Guid("e348183a-739a-4545-b136-9c2c34000c5c"),
                             Description = "Category about vehicles and stuff",
                             Name = "Vehicles"
                         },
                         new
                         {
-                            Id = new Guid("7dde2312-c00a-4f26-9e29-8d59cb3143d0"),
+                            Id = new Guid("69bcf259-ffc7-4963-aac1-f9201ce08d01"),
                             Description = "Category about houses and stuff",
                             Name = "House"
                         },
                         new
                         {
-                            Id = new Guid("0e632864-0f78-4ce5-b516-3eff8f4d036d"),
+                            Id = new Guid("8891ba63-37c4-4db6-aec3-a3ae82af99d1"),
                             Description = "Category about electronics and stuff",
                             Name = "Electronics"
                         },
                         new
                         {
-                            Id = new Guid("88fc6385-f9b0-4a54-8599-51dceb0c4b18"),
+                            Id = new Guid("fc804d4c-133d-40dd-8638-981dce5402d6"),
                             Description = "Category about clothes and stuff",
                             Name = "Clothes"
                         },
                         new
                         {
-                            Id = new Guid("8a0703f2-bd25-4bf9-b18a-111ba7723be0"),
+                            Id = new Guid("1a9a897a-74a7-4a1d-912c-744e7ca18ecb"),
                             Description = "Category about books and stuff",
                             Name = "Books"
                         });
@@ -97,70 +97,70 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0f8a8dbb-3fa4-4c02-8c5e-50366f22cad6"),
+                            Id = new Guid("30342d50-73c8-40d9-933f-1870f2cefaa3"),
                             Latitude = 51.586849000000001,
                             Longitude = 4.7760230000000004,
                             Name = "Breda"
                         },
                         new
                         {
-                            Id = new Guid("d140e48a-a065-458d-bfe1-ab3c530d7073"),
+                            Id = new Guid("b17601b6-48db-4675-b9e2-20a4447ff769"),
                             Latitude = 51.555,
                             Longitude = 5.0919439999999998,
                             Name = "Tilburg"
                         },
                         new
                         {
-                            Id = new Guid("e162381a-84e9-4487-a82e-95d9b442af99"),
+                            Id = new Guid("bf45b4dc-dd1c-4fe0-a755-0ae45f2f9a7f"),
                             Latitude = 51.441600000000001,
                             Longitude = 5.4696999999999996,
                             Name = "Eindhoven"
                         },
                         new
                         {
-                            Id = new Guid("97890040-e91e-43b4-b0be-9f523e93b100"),
+                            Id = new Guid("1e512919-c076-4fc5-9976-1212701dedbb"),
                             Latitude = 51.686399999999999,
                             Longitude = 5.3033999999999999,
                             Name = "Den Bosch"
                         },
                         new
                         {
-                            Id = new Guid("fc6011a1-1f33-4b57-8ec9-f1b1560336b3"),
+                            Id = new Guid("d9210fc0-6d6b-462a-9a06-27e2ec50d81c"),
                             Latitude = 52.370199999999997,
                             Longitude = 4.8952,
                             Name = "Amsterdam"
                         },
                         new
                         {
-                            Id = new Guid("f8bf7e0e-1098-4dea-858f-f1317d4350ba"),
+                            Id = new Guid("9be528b0-16ce-49be-bbe3-8883e20b6b46"),
                             Latitude = 51.924399999999999,
                             Longitude = 4.4776999999999996,
                             Name = "Rotterdam"
                         },
                         new
                         {
-                            Id = new Guid("5421dffe-d4dc-461b-af7d-849d2e7937ca"),
+                            Id = new Guid("a98b7436-52fe-448f-9f24-bc12a0cc22dc"),
                             Latitude = 52.090699999999998,
                             Longitude = 5.1220999999999997,
                             Name = "Utrecht"
                         },
                         new
                         {
-                            Id = new Guid("d4bdf9f0-7dc8-43d2-9e62-7ec30e79405a"),
+                            Id = new Guid("e8b7a402-e75d-437a-8cd7-0603147ba228"),
                             Latitude = 53.2194,
                             Longitude = 6.5664999999999996,
                             Name = "Groningen"
                         },
                         new
                         {
-                            Id = new Guid("40d0b08d-04c9-4ee5-815c-811addf9bfb8"),
+                            Id = new Guid("9865943d-0e27-4930-b614-d263ce421c1c"),
                             Latitude = 50.851399999999998,
                             Longitude = 5.6901999999999999,
                             Name = "Maastricht"
                         },
                         new
                         {
-                            Id = new Guid("bdfa95be-10e6-4b7d-a165-0c79396d89c6"),
+                            Id = new Guid("454812b0-c50b-4394-ab7d-36ee28bb8b92"),
                             Latitude = 52.379188999999997,
                             Longitude = 4.8994309999999999,
                             Name = "Haarlem"
@@ -230,98 +230,98 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("805debd3-6a09-4fcc-ac95-b3cecbbd5828"),
-                            BuyerId = new Guid("3c56d82e-d630-45ef-9f5c-9fddd6ffb03a"),
-                            CategoryId = new Guid("8a0703f2-bd25-4bf9-b18a-111ba7723be0"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1411),
+                            Id = new Guid("838f979a-2b0c-4ff3-9d1f-9da4dec04aa1"),
+                            BuyerId = new Guid("87390c03-e48e-4300-9030-6295319f46fd"),
+                            CategoryId = new Guid("1a9a897a-74a7-4a1d-912c-744e7ca18ecb"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7703),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "First book in Harry Potter book serial",
                             ImageUrl = new List<string> { "https://cdn.ozone.hr/media/catalog/product/cache/1/image/400x498/a4e40ebdc3e371adff845072e1c73f37/h/a/a19438e622aa321a0e73f360f1f3f855/harry-potter-and-the-philosopher-s-stone-30.jpg", "https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" },
-                            LocationId = new Guid("97890040-e91e-43b4-b0be-9f523e93b100"),
+                            LocationId = new Guid("1e512919-c076-4fc5-9976-1212701dedbb"),
                             Name = "Harry Potter and the philosopher's stone",
                             Price = 100.0,
-                            SellerId = new Guid("3c56d82e-d630-45ef-9f5c-9fddd6ffb03a"),
-                            SubCategoryId = new Guid("6b3744c9-7e4e-42d2-b554-71227ac764a6"),
+                            SellerId = new Guid("87390c03-e48e-4300-9030-6295319f46fd"),
+                            SubCategoryId = new Guid("cd62a6ba-dea0-4b86-8cfe-ce2e266941d3"),
                             isSold = false
                         },
                         new
                         {
-                            Id = new Guid("7566a634-0185-49b4-b491-cc4328903524"),
-                            BuyerId = new Guid("f45a9d27-d4b3-4829-be27-8e65a1636821"),
-                            CategoryId = new Guid("8a0703f2-bd25-4bf9-b18a-111ba7723be0"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1544),
+                            Id = new Guid("51f0199e-a3dc-4671-91a1-78a2887f9bfd"),
+                            BuyerId = new Guid("4c454ca1-7cf7-4720-aa31-490a2ca1631f"),
+                            CategoryId = new Guid("1a9a897a-74a7-4a1d-912c-744e7ca18ecb"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7803),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "Second book in Harry Potter book serial",
                             ImageUrl = new List<string> { "https://shop.skolskaknjiga.hr/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/1/7/173972.jpg", "https://m.media-amazon.com/images/I/91OINeHnJGL._AC_UF1000,1000_QL80_.jpg" },
-                            LocationId = new Guid("97890040-e91e-43b4-b0be-9f523e93b100"),
+                            LocationId = new Guid("1e512919-c076-4fc5-9976-1212701dedbb"),
                             Name = "Harry Potter and the chamber of secrets",
                             Price = 200.0,
-                            SellerId = new Guid("f45a9d27-d4b3-4829-be27-8e65a1636821"),
-                            SubCategoryId = new Guid("6b3744c9-7e4e-42d2-b554-71227ac764a6"),
+                            SellerId = new Guid("4c454ca1-7cf7-4720-aa31-490a2ca1631f"),
+                            SubCategoryId = new Guid("cd62a6ba-dea0-4b86-8cfe-ce2e266941d3"),
                             isSold = false
                         },
                         new
                         {
-                            Id = new Guid("38319901-c804-4ad6-b794-1ba2a2d9ad04"),
-                            BuyerId = new Guid("f0042957-d1ff-4417-a19c-f9c832fd654e"),
-                            CategoryId = new Guid("8a0703f2-bd25-4bf9-b18a-111ba7723be0"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1636),
+                            Id = new Guid("839dc368-8dc7-4aca-bd19-6072727c56d1"),
+                            BuyerId = new Guid("c4164268-9da6-4321-a198-42d2a10f4215"),
+                            CategoryId = new Guid("1a9a897a-74a7-4a1d-912c-744e7ca18ecb"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7860),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "Made out of cotton.",
                             ImageUrl = new List<string> { "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Trousers-colourisolated.jpg/1200px-Trousers-colourisolated.jpg", "https://www.fabricsight.com/blogs/posts/fabrics-for-trousers-top-10-fabrics-for-your-trousers-complete-guide" },
-                            LocationId = new Guid("97890040-e91e-43b4-b0be-9f523e93b100"),
+                            LocationId = new Guid("1e512919-c076-4fc5-9976-1212701dedbb"),
                             Name = "Trousers",
                             Price = 150.0,
-                            SellerId = new Guid("f0042957-d1ff-4417-a19c-f9c832fd654e"),
-                            SubCategoryId = new Guid("6b3744c9-7e4e-42d2-b554-71227ac764a6"),
+                            SellerId = new Guid("c4164268-9da6-4321-a198-42d2a10f4215"),
+                            SubCategoryId = new Guid("cd62a6ba-dea0-4b86-8cfe-ce2e266941d3"),
                             isSold = false
                         },
                         new
                         {
-                            Id = new Guid("c6f5e625-7739-4339-a659-16e3f8b9b12c"),
-                            BuyerId = new Guid("c65df554-825d-4ff6-b5cd-77a5935ca910"),
-                            CategoryId = new Guid("07551d33-b0bb-4e4c-acc8-1274f199a2f4"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1675),
+                            Id = new Guid("46338af7-ad8b-4f99-bf07-7efe609abd4f"),
+                            BuyerId = new Guid("16b7488d-f32c-4564-8d73-58b3e58e3319"),
+                            CategoryId = new Guid("e348183a-739a-4545-b136-9c2c34000c5c"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7891),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "Cool mountain bike black color",
                             ImageUrl = new List<string> { "https://s3.us-east-1.amazonaws.com/craft-marinbikes/images/2020/bikes/category/header/_1200x630_fit_center-center_82_none/23-rzxr-action-65.jpg?mtime=1668448653", "https://images.immediate.co.uk/production/volatile/sites/21/2020/06/Santa-Cruz-5010-CC-X01-RSV-25-1ddbe5a.jpg?quality=90&resize=768,574" },
-                            LocationId = new Guid("d140e48a-a065-458d-bfe1-ab3c530d7073"),
+                            LocationId = new Guid("b17601b6-48db-4675-b9e2-20a4447ff769"),
                             Name = "Bike",
                             Price = 1000.0,
-                            SellerId = new Guid("c65df554-825d-4ff6-b5cd-77a5935ca910"),
-                            SubCategoryId = new Guid("e7300164-5416-4cad-8375-70a49c760f6d"),
+                            SellerId = new Guid("16b7488d-f32c-4564-8d73-58b3e58e3319"),
+                            SubCategoryId = new Guid("b2321a2c-159d-4226-8795-016a905042c4"),
                             isSold = false
                         },
                         new
                         {
-                            Id = new Guid("537f73ff-402d-4cf7-a5b1-a83ab33c3439"),
-                            BuyerId = new Guid("b74543f8-c311-4543-8cee-54b0a99e5f43"),
-                            CategoryId = new Guid("07551d33-b0bb-4e4c-acc8-1274f199a2f4"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1750),
+                            Id = new Guid("29ab67ea-cb02-404d-863a-643cfc989c1f"),
+                            BuyerId = new Guid("bd82e3a9-1967-4fc0-8f97-0e8cc6c159a3"),
+                            CategoryId = new Guid("e348183a-739a-4545-b136-9c2c34000c5c"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7924),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "Cool car black color",
                             ImageUrl = new List<string> { "https://hips.hearstapps.com/hmg-prod/images/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg?resize=2048:*    ", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-MO724XZahMAnTCwgdi0vc6rrPe9mlv1odARV9W0DA&s" },
-                            LocationId = new Guid("d140e48a-a065-458d-bfe1-ab3c530d7073"),
+                            LocationId = new Guid("b17601b6-48db-4675-b9e2-20a4447ff769"),
                             Name = "Tires",
                             Price = 10000.0,
-                            SellerId = new Guid("b74543f8-c311-4543-8cee-54b0a99e5f43"),
-                            SubCategoryId = new Guid("29c41fd6-2d98-44f7-9101-39c275594212"),
+                            SellerId = new Guid("bd82e3a9-1967-4fc0-8f97-0e8cc6c159a3"),
+                            SubCategoryId = new Guid("e6e6c936-0c78-4f3b-a15e-033d41893b74"),
                             isSold = false
                         },
                         new
                         {
-                            Id = new Guid("0f70028a-7423-47fa-a70f-2ea96ded9bae"),
-                            BuyerId = new Guid("f0042957-d1ff-4417-a19c-f9c832fd654e"),
-                            CategoryId = new Guid("7dde2312-c00a-4f26-9e29-8d59cb3143d0"),
-                            CreatedAt = new DateTime(2023, 4, 24, 0, 39, 8, 765, DateTimeKind.Utc).AddTicks(1790),
+                            Id = new Guid("94a96698-6755-42ca-9e9c-45070d24f9fd"),
+                            BuyerId = new Guid("c4164268-9da6-4321-a198-42d2a10f4215"),
+                            CategoryId = new Guid("69bcf259-ffc7-4963-aac1-f9201ce08d01"),
+                            CreatedAt = new DateTime(2023, 4, 25, 21, 46, 37, 510, DateTimeKind.Utc).AddTicks(7951),
                             Data = "{\r\n  \"name\": \"string\",\r\n  \"roles\": [\r\n    \"string\",\r\n    \"string\"\r\n  ]\r\n}",
                             Description = "Cool car black color",
                             ImageUrl = new List<string> { "https://hips.hearstapps.com/hmg-prod/images/pile-of-tires-on-white-background-royalty-free-image-672151801-1561751929.jpg?resize=2048:*    ", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-MO724XZahMAnTCwgdi0vc6rrPe9mlv1odARV9W0DA&s" },
-                            LocationId = new Guid("5421dffe-d4dc-461b-af7d-849d2e7937ca"),
+                            LocationId = new Guid("a98b7436-52fe-448f-9f24-bc12a0cc22dc"),
                             Name = "Tires",
                             Price = 10000.0,
-                            SellerId = new Guid("f0042957-d1ff-4417-a19c-f9c832fd654e"),
-                            SubCategoryId = new Guid("64258f97-7b89-4838-9a95-1b18d794bbac"),
+                            SellerId = new Guid("c4164268-9da6-4321-a198-42d2a10f4215"),
+                            SubCategoryId = new Guid("bc6eb10e-12d5-42ca-9227-170b459f0a25"),
                             isSold = false
                         });
                 });
@@ -356,56 +356,56 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e7300164-5416-4cad-8375-70a49c760f6d"),
-                            CategoryId = new Guid("07551d33-b0bb-4e4c-acc8-1274f199a2f4"),
+                            Id = new Guid("b2321a2c-159d-4226-8795-016a905042c4"),
+                            CategoryId = new Guid("e348183a-739a-4545-b136-9c2c34000c5c"),
                             Description = "SubCatergy about bikes and stuff",
                             Name = "Bikes",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("29c41fd6-2d98-44f7-9101-39c275594212"),
-                            CategoryId = new Guid("07551d33-b0bb-4e4c-acc8-1274f199a2f4"),
+                            Id = new Guid("e6e6c936-0c78-4f3b-a15e-033d41893b74"),
+                            CategoryId = new Guid("e348183a-739a-4545-b136-9c2c34000c5c"),
                             Description = "SubCatergy about cars and stuff",
                             Name = "Cars",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("64258f97-7b89-4838-9a95-1b18d794bbac"),
-                            CategoryId = new Guid("7dde2312-c00a-4f26-9e29-8d59cb3143d0"),
+                            Id = new Guid("bc6eb10e-12d5-42ca-9227-170b459f0a25"),
+                            CategoryId = new Guid("69bcf259-ffc7-4963-aac1-f9201ce08d01"),
                             Description = "SubCatergy about houses and stuff",
                             Name = "Houses",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("95f03370-7eef-403a-a0be-1af533f602a4"),
-                            CategoryId = new Guid("7dde2312-c00a-4f26-9e29-8d59cb3143d0"),
+                            Id = new Guid("e6780c1f-ba68-4976-86d2-9ab5af7bdae6"),
+                            CategoryId = new Guid("69bcf259-ffc7-4963-aac1-f9201ce08d01"),
                             Description = "SubCatergy about apartments and stuff",
                             Name = "Apartments",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("ff341249-6486-4747-bdd7-54014cf0c2eb"),
-                            CategoryId = new Guid("0e632864-0f78-4ce5-b516-3eff8f4d036d"),
+                            Id = new Guid("ac248ff7-fd37-463a-9813-40850559c4eb"),
+                            CategoryId = new Guid("8891ba63-37c4-4db6-aec3-a3ae82af99d1"),
                             Description = "SubCatergy about laptops and stuff",
                             Name = "Laptops",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("804a6233-0336-4d31-8ac3-f71548e24372"),
-                            CategoryId = new Guid("88fc6385-f9b0-4a54-8599-51dceb0c4b18"),
+                            Id = new Guid("27fb3205-ab14-459f-b3a3-f09dcb494ef8"),
+                            CategoryId = new Guid("fc804d4c-133d-40dd-8638-981dce5402d6"),
                             Description = "SubCatergy about pants and stuff",
                             Name = "Pants",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
                         },
                         new
                         {
-                            Id = new Guid("6b3744c9-7e4e-42d2-b554-71227ac764a6"),
-                            CategoryId = new Guid("8a0703f2-bd25-4bf9-b18a-111ba7723be0"),
+                            Id = new Guid("cd62a6ba-dea0-4b86-8cfe-ce2e266941d3"),
+                            CategoryId = new Guid("1a9a897a-74a7-4a1d-912c-744e7ca18ecb"),
                             Description = "SubCatergy about books and stuff",
                             Name = "Books",
                             Schema = "{\r\n  \"type\": \"object\",\r\n  \"properties\": {\r\n    \"name\": {\r\n      \"type\": \"string\"\r\n    },\r\n    \"roles\": {\r\n      \"type\": \"array\"\r\n    }\r\n  }\r\n}"
@@ -425,9 +425,6 @@ namespace Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<bool>("IsAdmin")
-                        .HasColumnType("boolean");
 
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uuid");
@@ -449,71 +446,64 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0b1eeb79-e2d0-4b8b-839a-5107bd2371e8"),
+                            Id = new Guid("709c2186-413e-4ed9-a580-353784979f04"),
                             Bio = "King in the North",
                             Email = "joe.snow@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("0f8a8dbb-3fa4-4c02-8c5e-50366f22cad6"),
+                            LocationId = new Guid("30342d50-73c8-40d9-933f-1870f2cefaa3"),
                             Name = "Joe Snow",
                             Password = "123456789"
                         },
                         new
                         {
-                            Id = new Guid("3c56d82e-d630-45ef-9f5c-9fddd6ffb03a"),
+                            Id = new Guid("87390c03-e48e-4300-9030-6295319f46fd"),
                             Bio = "Dev developer",
                             Email = "arnie.arny@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("0f8a8dbb-3fa4-4c02-8c5e-50366f22cad6"),
+                            LocationId = new Guid("30342d50-73c8-40d9-933f-1870f2cefaa3"),
                             Name = "Arnie Arny",
                             Password = "987654321"
                         },
                         new
                         {
-                            Id = new Guid("657fa6df-5a3d-42d0-959d-fb1acca316be"),
+                            Id = new Guid("bd39f37d-f978-4c56-96a6-6e9297d61bab"),
                             Bio = "Backend <3",
                             Email = "jan.jovis@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("d140e48a-a065-458d-bfe1-ab3c530d7073"),
+                            LocationId = new Guid("b17601b6-48db-4675-b9e2-20a4447ff769"),
                             Name = "Modi Boi",
                             Password = "DrModun-06"
                         },
                         new
                         {
-                            Id = new Guid("c65df554-825d-4ff6-b5cd-77a5935ca910"),
+                            Id = new Guid("16b7488d-f32c-4564-8d73-58b3e58e3319"),
                             Bio = "Guy (I guess) named Finley",
                             Email = "finley.rivas@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("d140e48a-a065-458d-bfe1-ab3c530d7073"),
+                            LocationId = new Guid("b17601b6-48db-4675-b9e2-20a4447ff769"),
                             Name = "Finley Rivas",
                             Password = "Finley-07"
                         },
                         new
                         {
-                            Id = new Guid("f45a9d27-d4b3-4829-be27-8e65a1636821"),
+                            Id = new Guid("4c454ca1-7cf7-4720-aa31-490a2ca1631f"),
                             Bio = "Guy named Peter",
                             Email = "peter.ferguson@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("e162381a-84e9-4487-a82e-95d9b442af99"),
+                            LocationId = new Guid("bf45b4dc-dd1c-4fe0-a755-0ae45f2f9a7f"),
                             Name = "Peter Ferguson",
                             Password = "Peter-08"
                         },
                         new
                         {
-                            Id = new Guid("f0042957-d1ff-4417-a19c-f9c832fd654e"),
+                            Id = new Guid("c4164268-9da6-4321-a198-42d2a10f4215"),
                             Bio = "Woman named Jada",
                             Email = "jada.shea@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("97890040-e91e-43b4-b0be-9f523e93b100"),
+                            LocationId = new Guid("1e512919-c076-4fc5-9976-1212701dedbb"),
                             Name = "Jada Shea",
                             Password = "Jada-93"
                         },
                         new
                         {
-                            Id = new Guid("b74543f8-c311-4543-8cee-54b0a99e5f43"),
+                            Id = new Guid("bd82e3a9-1967-4fc0-8f97-0e8cc6c159a3"),
                             Bio = "Guy named Rayan",
                             Email = "rayan.mitchell@gmail.com",
-                            IsAdmin = false,
-                            LocationId = new Guid("fc6011a1-1f33-4b57-8ec9-f1b1560336b3"),
+                            LocationId = new Guid("d9210fc0-6d6b-462a-9a06-27e2ec50d81c"),
                             Name = "Rayan Mitchell",
                             Password = "Rayan-85"
                         });

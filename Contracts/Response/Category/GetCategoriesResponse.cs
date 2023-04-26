@@ -1,6 +1,6 @@
-﻿using ClassLibrary1.Response.User;
+﻿using Contracts.Response.User;
 
-namespace ClassLibrary1.Response.Category;
+namespace Contracts.Response.Category;
 
 public class GetCategoriesResponse
 {

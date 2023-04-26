@@ -1,9 +1,12 @@
-﻿using ClassLibrary1.Request.Category;
-using ClassLibrary1.Response.Category;
+﻿using Api.Constants;
+using Contracts.Request.Category;
+using Contracts.Response.Category;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers;
+[Authorize(AuthorizationConstants.AdminUserPolicyName)]
 [ApiController]
 public class CategoryController : ControllerBase
 {
@@ -12,6 +15,7 @@ public class CategoryController : ControllerBase
     {
         _categoryServices = categoryServices;
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Category.GetAll)]
     public async Task<ActionResult<GetCategoriesResponse>> GetAllCategories()
     {
@@ -19,22 +23,23 @@ public class CategoryController : ControllerBase
         if (response.Categories == null) return NotFound();
         return Ok(response);
     }
+    [AllowAnonymous]
     [HttpGet(Routes.Category.Get)]
-    public async Task<ActionResult<GetCategoryResponse>> GetCategoryById([FromRoute] Guid id)
+    public async Task<ActionResult<GetCategoryResponse>> GetCategoryById([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        var response = await _categoryServices.GetCategoryByIdService(id);
+        var response = await _categoryServices.GetCategoryByIdService(id, cancellationToken);
         if (response == null) return NotFound();
         return Ok(response);
     }
     [HttpPost(Routes.Category.Post)]
-    public async Task<ActionResult<PostCategoryResponse>> PostCategory([FromBody] PostCategoryRequest postCategoryRequest)
+    public async Task<ActionResult<PostCategoryResponse>> PostCategory([FromBody] PostCategoryRequest postCategoryRequest, CancellationToken cancellationToken)
     {
-        var response = await _categoryServices.PostCategoryService(postCategoryRequest);
+        var response = await _categoryServices.PostCategoryService(postCategoryRequest, cancellationToken);
         if (response.Category == null) return NotFound();
         return Ok(response);
     }
     [HttpPut(Routes.Category.Put)]
-    public async Task<ActionResult<PutCategoryResponse>> PutCategory([FromRoute] Guid id, [FromBody] PostCategoryRequest request)
+    public async Task<ActionResult<PutCategoryResponse>> PutCategory([FromRoute] Guid id, [FromBody] PostCategoryRequest request, CancellationToken cancellationToken)
     {
         var putCategoryRequest = new PutCategoryRequest
         {
@@ -42,14 +47,14 @@ public class CategoryController : ControllerBase
             Name = request.Name,
             Description = request.Description
         };
-        var response = await _categoryServices.PutCategoryService(putCategoryRequest);
+        var response = await _categoryServices.PutCategoryService(putCategoryRequest, cancellationToken);
         if (response.Category == null) return NotFound();
         return Ok(response);
     }
 [HttpDelete(Routes.Category.Delete)]
-    public async Task<ActionResult<DeleteCategoryResponse>> DeleteCategory(Guid id)
+    public async Task<ActionResult<DeleteCategoryResponse>> DeleteCategory(Guid id, CancellationToken cancellationToken)
     {
-        var response = await _categoryServices.DeleteCategoryService(id);
+        var response = await _categoryServices.DeleteCategoryService(id, cancellationToken);
         if (!response.IsCompleted) return NotFound();
         return Ok(response);
     }

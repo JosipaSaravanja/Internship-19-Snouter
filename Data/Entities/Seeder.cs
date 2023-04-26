@@ -101,7 +101,6 @@ public static class Seeder
                 Bio="King in the North",
                 Email = "joe.snow@gmail.com",
                 Password = "123456789",
-                IsAdmin = false,
                 LocationId=locations[0].Id,
             },
 
@@ -112,7 +111,6 @@ public static class Seeder
                 Bio="Dev developer",
                 Email = "arnie.arny@gmail.com",
                 Password = "987654321",
-                IsAdmin = false,
                 LocationId=locations[0].Id,
             },
 
@@ -123,7 +121,6 @@ public static class Seeder
                 Bio="Backend <3",
                 Email = "jan.jovis@gmail.com",
                 Password = "DrModun-06",
-                IsAdmin = false,
                 LocationId=locations[1].Id,
             },
 
@@ -134,7 +131,6 @@ public static class Seeder
                 Bio="Guy (I guess) named Finley",
                 Email = "finley.rivas@gmail.com",
                 Password = "Finley-07",
-                IsAdmin = false,
                 LocationId=locations[1].Id,
             },
 
@@ -145,7 +141,6 @@ public static class Seeder
                 Bio="Guy named Peter",
                 Email = "peter.ferguson@gmail.com",
                 Password = "Peter-08",
-                IsAdmin = false,
                 LocationId=locations[2].Id,
             },
 
@@ -156,7 +151,6 @@ public static class Seeder
                 Bio="Woman named Jada",
                 Email = "jada.shea@gmail.com",
                 Password = "Jada-93",
-                IsAdmin = false,
                 LocationId=locations[3].Id,
             },
 
@@ -167,7 +161,6 @@ public static class Seeder
                 Bio="Guy named Rayan",
                 Email = "rayan.mitchell@gmail.com",
                 Password = "Rayan-85",
-                IsAdmin = false,
                 LocationId=locations[4].Id,
             }
         };

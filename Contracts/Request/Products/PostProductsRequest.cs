@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary1.Request.Products;
+﻿namespace Contracts.Request.Products;
 
 public class PostProductsRequest
 {
